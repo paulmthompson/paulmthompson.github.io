@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Precentral Cortex</title>
+<!-- 2014-09-25 Thu 20:24 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Paul Thompson" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/javascript" src="http://orgmode.org/mathjax/MathJax.js"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        // Only one of the two following lines, depending on user settings
+        // First allows browser-native MathML display, second forces HTML/CSS
+        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Precentral Cortex</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. Historical areas</a></li>
+<li><a href="#sec-2">2. Subdivisons</a>
+<ul>
+<li><a href="#sec-2-1">2.1. F1 - Primary motor cortex (M1)</a></li>
+<li><a href="#sec-2-2">2.2. F2 - Dorsal premotor cortex (PMd)</a></li>
+<li><a href="#sec-2-3">2.3. F3 - Supplementary motor area proper (SMA)</a></li>
+<li><a href="#sec-2-4">2.4. F4 and F5 - Ventral Premotor area (PMv)</a></li>
+<li><a href="#sec-2-5">2.5. F6 - Pre-supplementary motor area (pre-SMA)</a></li>
+<li><a href="#sec-2-6">2.6. F7 - Predorsal premotor cortex (pre-PMd)</a></li>
+<li><a href="#sec-2-7">2.7. Rostral cingulate cortex</a></li>
+</ul>
+</li>
+<li><a href="#sec-3">3. Structure and Function Implications</a>
+<ul>
+<li><a href="#sec-3-1">3.1. Corticospinal</a></li>
+<li><a href="#sec-3-2">3.2. F6 and F7</a></li>
+</ul>
+</li>
+<li><a href="#sec-4">4. Critical Experiments</a></li>
+<li><a href="#sec-5">5. Reviews</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Historical areas</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Initially, two <b>agranular</b> areas of the caudal frontal lobe were described: <b>area 4</b> and <b>area 6</b>. 4 + most of 6 made the Primary Motor Cortex (M1) and the rest of 6 was called the Supplementary Motor area (SMA) [<a href="#Luppino2000">2</a>]. 
+</p>
+
+<p>
+There are have been additional classifications based on anatomy and function [<a href="#Matelli">3</a>], [<a href="#Matelli1991">4</a>]. These are described below. Area 4 became M1, and area 6 was divided into mesial, dorsal and ventral, which were then further subdivided rostrally and caudally.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Subdivisons</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> F1 - Primary motor cortex (M1)</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Projects to SMA, PMd, PMv
+Recieves SMA, PMd, PMv, S1, rostral parietal
+</p>
+
+<p>
+There appears to be anatomic and functional differences in M1 itself
+</p>
+
+<p>
+Caudally, there are stronger connections with the basal ganglia and weaker connections with the cerebellum. Most <a href="../Corticomotorneurons/Corticomotorneurons.html">corticomotorneurons</a> are concentrated here [<a href="#Rathelot2009">6</a>], [<a href="#Rathelot2006">5</a>]. Studies that record from the bank of the central sulcus in this area appear to show the strongest correlations with movement <a href="../Kinetics/Kinetics.html">kinetics</a>.
+</p>
+
+<p>
+Rostrally, there are stronger cerebellar connections and weaker basal ganglia connections.
+</p>
+
+<p>
+Corticospinal fibers from F1 mostly synapse in Lamina VI, VII, VIII and IX (direct motor neuron connections).
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> F2 - Dorsal premotor cortex (PMd)</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Projects to caudal, medial and lateral parietal, M1, SMA, PMv
+Recieves caudal, medial and lateral parietal, M1, SMA, PMv
+</p>
+
+<p>
+Corticospinal fibers mostly terminate in intermediate lamina
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-3" class="outline-3">
+<h3 id="sec-2-3"><span class="section-number-3">2.3</span> F3 - Supplementary motor area proper (SMA)</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+Projects to M1, PMd, PMv
+Recieves M1, PMd, PMv
+</p>
+
+<p>
+Corticospinal fibers mostly terminate in intermediate lamina
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-4" class="outline-3">
+<h3 id="sec-2-4"><span class="section-number-3">2.4</span> F4 and F5 - Ventral Premotor area (PMv)</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+Projects to caudal, medial and lateral parietal, M1, SMA, PMd
+Recieves caudal, medial and lateral parietal, M1, SMA, PMd
+</p>
+
+<p>
+Corticospinal fibers mostly terminate in intermediate lamina
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-5" class="outline-3">
+<h3 id="sec-2-5"><span class="section-number-3">2.5</span> F6 - Pre-supplementary motor area (pre-SMA)</h3>
+<div class="outline-text-3" id="text-2-5">
+<p>
+weakly connected to parietal
+connections with prefrontal
+</p>
+
+<p>
+No descending spinal cord connections. Exerts influence through the brainstem.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-6" class="outline-3">
+<h3 id="sec-2-6"><span class="section-number-3">2.6</span> F7 - Predorsal premotor cortex (pre-PMd)</h3>
+<div class="outline-text-3" id="text-2-6">
+<p>
+weakly connected to parietal
+connections with prefrontal
+</p>
+
+<p>
+No descending spinal cord connections. Exerts influence through the brainstem.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-7" class="outline-3">
+<h3 id="sec-2-7"><span class="section-number-3">2.7</span> Rostral cingulate cortex</h3>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Structure and Function Implications</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> Corticospinal</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+F1 is the division with the most direct motor neuron connections, while F2, F3, F4 and F5 mostly project either to F1 or to intermediate lamina. This could mean that the former determine global movement thorugh spinal circuits and F1 exerts direct, fine control of movement [<a href="#Luppino2000">2</a>].
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2"><span class="section-number-3">3.2</span> F6 and F7</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+F6 and F7 do not have corticospinal projects, and have only weak connections with the parietal lobe. They do however have strong connections with the prefrontal and cingulate areas. Their function may be mostly concerned with " motivation, long term plans and memory of past actions" [<a href="#Luppino2000">2</a>]. 
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> Critical Experiments</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+[<a href="#Rathelot2009">6</a>] Viral tracing shows that CMNs are almost exclusively located in caudal M1 and not rostral M1. The authors conclude that caudal M1 is evolutionary newer and was developed for finer movements. Authors refer to their previous work which has made distinctions between <a href="../TuningCurve/TuningCurve.html"> <b>muscle-like</b> and <b>extrinsic-like</b> motor neurons</a>, which they say could be analogous.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> Reviews</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+[<a href="#Luppino2000">2</a>] Emphasizes the differences between each of the seven areas, particularly F1 and the rest
+</p>
+
+<p>
+[<a href="#Dum2002">1</a>] Mostly emphasizes the parallel descending pathways from each region and similarities between them
+</p>
+
+<div id="bibliography">
+<h2>References</h2>
+
+</div>
+<table>
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="Dum2002">1</a>]
+</td>
+<td class="bibtexitem">
+Richard&nbsp;P Dum and Peter&nbsp;L Strick.
+ Motor areas in the frontal lobe of the primate.
+ <em>Physiology &amp; behavior</em>, 77(4-5):677-82, December 2002.
+[&nbsp;<a href="library_bib.html#Dum2002">bib</a>&nbsp;| 
+<a href="http://www.ncbi.nlm.nih.gov/pubmed/12527018">http</a>&nbsp;]
+
+</td>
+</tr>
+
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="Luppino2000">2</a>]
+</td>
+<td class="bibtexitem">
+G.&nbsp;Luppino and G.&nbsp;Rizzolatti.
+ The Organization of the Frontal Motor Cortex.
+ <em>News in physiological sciences : an international journal of
+  physiology produced jointly by the International Union of Physiological
+  Sciences and the American Physiological Society</em>, 15:219-224, October 2000.
+[&nbsp;<a href="library_bib.html#Luppino2000">bib</a>&nbsp;| 
+<a href="http://www.ncbi.nlm.nih.gov/pubmed/11390914">http</a>&nbsp;]
+
+</td>
+</tr>
+
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="Matelli">3</a>]
+</td>
+<td class="bibtexitem">
+M&nbsp;Matelli, G&nbsp;Luppino, and G&nbsp;Rizzolatti.
+ Patterns of cytochrome oxidase activity in the frontal agranular
+  cortex of the macaque monkey.
+ <em>Behavioural brain research</em>, 18(2):125-36, 1985.
+[&nbsp;<a href="library_bib.html#Matelli">bib</a>&nbsp;| 
+<a href="http://www.ncbi.nlm.nih.gov/pubmed/3006721">http</a>&nbsp;]
+
+</td>
+</tr>
+
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="Matelli1991">4</a>]
+</td>
+<td class="bibtexitem">
+M&nbsp;Matelli, G&nbsp;Luppino, and G&nbsp;Rizzolatti.
+ Architecture of superior and mesial area 6 and the adjacent
+  cingulate cortex in the macaque monkey.
+ <em>The Journal of comparative neurology</em>, 311(4):445-62, September
+  1991.
+[&nbsp;<a href="library_bib.html#Matelli1991">bib</a>&nbsp;| 
+<a href="http://dx.doi.org/10.1002/cne.903110402">DOI</a>&nbsp;| 
+<a href="http://www.ncbi.nlm.nih.gov/pubmed/1757597">http</a>&nbsp;]
+
+</td>
+</tr>
+
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="Rathelot2006">5</a>]
+</td>
+<td class="bibtexitem">
+Jean-Alban Rathelot and Peter&nbsp;L Strick.
+ Muscle representation in the macaque motor cortex: an anatomical
+  perspective.
+ <em>Proceedings of the National Academy of Sciences of the United
+  States of America</em>, 103(21):8257-62, May 2006.
+[&nbsp;<a href="library_bib.html#Rathelot2006">bib</a>&nbsp;| 
+<a href="http://dx.doi.org/10.1073/pnas.0602933103">DOI</a>&nbsp;| 
+<a href="http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=1461407\&tool=pmcentrez\&rendertype=abstract">http</a>&nbsp;]
+
+</td>
+</tr>
+
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="Rathelot2009">6</a>]
+</td>
+<td class="bibtexitem">
+Jean-Alban Rathelot and Peter&nbsp;L Strick.
+ Subdivisions of primary motor cortex based on cortico-motoneuronal
+  cells.
+ <em>Proceedings of the National Academy of Sciences of the United
+  States of America</em>, 106(3):918-23, January 2009.
+[&nbsp;<a href="library_bib.html#Rathelot2009">bib</a>&nbsp;| 
+<a href="http://dx.doi.org/10.1073/pnas.0808362106">DOI</a>&nbsp;| 
+<a href="http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=2621250\&tool=pmcentrez\&rendertype=abstract">http</a>&nbsp;]
+
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Paul Thompson</p>
+<p class="date">Created: 2014-09-25 Thu 20:24</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.3.50.2 (<a href="http://orgmode.org">Org</a> mode 8.2.7c)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

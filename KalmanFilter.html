@@ -1,0 +1,1054 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Kalman Filter</title>
+<!-- 2014-09-25 Thu 20:23 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Paul Thompson" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/javascript" src="http://orgmode.org/mathjax/MathJax.js"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        // Only one of the two following lines, depending on user settings
+        // First allows browser-native MathML display, second forces HTML/CSS
+        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Kalman Filter</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. Definition</a></li>
+<li><a href="#sec-2">2. Overview</a></li>
+<li><a href="#sec-3">3. Kalman Filter Basics</a>
+<ul>
+<li><a href="#sec-3-1">3.1. Assumptions</a>
+<ul>
+<li><a href="#sec-3-1-1">3.1.1. Linear System</a></li>
+<li><a href="#sec-3-1-2">3.1.2. White Noise</a></li>
+<li><a href="#sec-3-1-3">3.1.3. Gaussian Noise</a></li>
+</ul>
+</li>
+<li><a href="#sec-3-2">3.2. Simple 1D Theory</a></li>
+<li><a href="#sec-3-3">3.3. Terms and Equations</a></li>
+<li><a href="#sec-3-4">3.4. Algorithm</a></li>
+<li><a href="#sec-3-5">3.5. Extended Kalman Filter</a>
+<ul>
+<li><a href="#sec-3-5-1">3.5.1. Concept</a></li>
+<li><a href="#sec-3-5-2">3.5.2. Nonlinear System equations</a></li>
+<li><a href="#sec-3-5-3">3.5.3. Linearization</a></li>
+<li><a href="#sec-3-5-4">3.5.4. Determine Covariance</a></li>
+<li><a href="#sec-3-5-5">3.5.5. Equations</a></li>
+</ul>
+</li>
+<li><a href="#sec-3-6">3.6. Unscented Kalman Filter</a>
+<ul>
+<li><a href="#sec-3-6-1">3.6.1. Concept</a></li>
+<li><a href="#sec-3-6-2">3.6.2. Unscented Transform</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#sec-4">4. BCI</a>
+<ul>
+<li><a href="#sec-4-1">4.1. Parameters</a>
+<ul>
+<li><a href="#sec-4-1-1">4.1.1. Standard Kalman</a></li>
+</ul>
+</li>
+<li><a href="#sec-4-2">4.2. Learning and Decoding</a></li>
+<li><a href="#sec-4-3">4.3. Experiments</a></li>
+</ul>
+</li>
+<li><a href="#sec-5">5. Reviews</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Definition</h2>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Overview</h2>
+</div>
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Kalman Filter Basics</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> Assumptions</h3>
+<div class="outline-text-3" id="text-3-1">
+</div><div id="outline-container-sec-3-1-1" class="outline-4">
+<h4 id="sec-3-1-1"><span class="section-number-4">3.1.1</span> Linear System</h4>
+</div>
+
+<div id="outline-container-sec-3-1-2" class="outline-4">
+<h4 id="sec-3-1-2"><span class="section-number-4">3.1.2</span> White Noise</h4>
+</div>
+
+<div id="outline-container-sec-3-1-3" class="outline-4">
+<h4 id="sec-3-1-3"><span class="section-number-4">3.1.3</span> Gaussian Noise</h4>
+</div>
+</div>
+
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2"><span class="section-number-3">3.2</span> Simple 1D Theory</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+The Kalman filter involves combining estimates of the same value but
+with different variance. The optimal to combine these values would be
+to average them weighted by the variance of the measurement. 
+</p>
+
+\begin{align}
+\hat{x}_{t_2} &= [\sigma_{z_2}^2/(\sigma_{z_2}^2 + \sigma_{z_1}^2)^2]z_1 +
+[\sigma_{z_1}^2/(\sigma_{z_2}^2 + \sigma_{z_1}^2)^2]z_2 \\
+&= z_1 + [\sigma_{z_1}^2/(\sigma_{z_2}^2 + \sigma_{z_1}^2)^2][z_2-z_1]
+\end{align}
+
+<p>
+The new variance would likewise a combination of the two as well
+</p>
+\begin{equation}
+1/\sigma^2 = 1/\sigma_{z_1}^2)^2 + 1/\sigma_{z_2}^2
+\end{equation}
+
+<p>
+Kalman filter notation uses the form.
+</p>
+
+\begin{equation}
+\hat{x}(t_2) = \hat{x}(t_1) + K(t_2)[z_2 - \hat{x}(t_1)]
+\end{equation}
+
+<p>
+where K(t<sub>2</sub>) is equal to
+</p>
+
+\begin{equation}
+K(t_2) = \sigma_{z_1}^2/(\sigma_{z_2}^2 + \sigma_{z_1}^2)^2
+\end{equation}
+
+<p>
+As time progresses, the state is updated by the prediction of the
+future state based on the system as well as measurements of the
+system (which have some uncertainty). 
+</p>
+
+<p>
+Later in time, before the next
+measurement is made, the state predicted based on the past state (with
+its prior uncertainty) along with how you believe that the system has
+progressed (with its associated uncertainty)
+</p>
+
+\begin{equation}
+\hat{x}(t^-_3) = \hat{x}_{t_2} + g(x,t)(t_3-t_2)
+\end{equation}
+\begin{equation}
+\sigma_{x}^2(t^-_3) = \sigma_{x}^2(t_2) + \sigma_{g(x,t)}^2(t_3-t_2)
+\end{equation}
+
+<p>
+So increasing time makes the estimate more uncertain.
+</p>
+
+<p>
+This can then be combined with the incoming measurement in a similar
+way as previously
+</p>
+
+\begin{equation}
+\hat{x}(t_3) = \hat{x}(t^-_3)  + K(t_3)[z_3 - \hat{x}(t^-_3)]
+\end{equation}
+\begin{equation}
+\sigma_{x}^2(t_3) = \sigma_{x}^2(t^-_3) - K(t_3) \sigma_{x}^2(t^-_3)
+\end{equation}
+\begin{equation}
+K(t_3) = \sigma_{x}^2(t^-_3)/[\sigma_{x}^2(t^-_3) + \sigma_{z_3}^2]
+\end{equation}
+</div>
+</div>
+
+
+
+<div id="outline-container-sec-3-3" class="outline-3">
+<h3 id="sec-3-3"><span class="section-number-3">3.3</span> Terms and Equations</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+First we have a system we are trying to model. We are assuming that
+this system is linear and stochastic, so all of its possible
+components are
+</p>
+
+\begin{equation}
+x_k = Ax_{k-1} + Bu_{k-1} + w_{k-1}
+\end{equation}
+
+<p>
+x<sub>k</sub> represents the system at some step k. A is a n x n matrix
+that relates the past (x<sub>k-1</sub>) to the present. The other term, B, may or
+may not be present, and it is a m x n matrix that relates a possible <b>control input</b>
+u<sub>k-1</sub> to the current state of the system. w<sub>k</sub> is the noise inherent
+in the process.
+</p>
+
+<p>
+We are going to be measuring this system. Our measurement will not be
+a perfect representation, and will be related to the system as the
+following
+</p>
+
+\begin{equation}
+z_k = Hx_k + v_k
+\end{equation}
+
+<p>
+So our measurement z<sub>k</sub> is related to the true value of the state x<sub>k</sub>,
+by the matrix H (you might not always be measuring the state directly,
+like resistance and current), along with some measurement noise, v<sub>k</sub>.
+</p>
+
+<p>
+Both of the noise terms, becuase this is a Kalman filter, are assumed
+to be white and Gaussian and therefore have the following probability
+distributions with respective covariances Q and R.
+</p>
+
+\begin{align}
+p(w) ~ N(0,Q) \\
+p(v) ~ N(0,R)
+\end{align}
+
+<p>
+Now we are going to be estimating states in the kalman filter, so we
+will desinate our estimates with a hate to distinguish them from the
+true value of the state 
+</p>
+\begin{equation} 
+\hat{x}_k 
+\end{equation}
+
+<p>
+With the Kalman filter we are going to be trying to optimally
+"combine" our estimate of the state based on how we believe the system
+to function (our linear stochastic difference equation), with updated
+measurements. To do this, we are going to combine our most up-to-date
+prediction with the measurement. That is, we will combine our
+prediction at step k immediately before we take the measurement with
+the new measurement. This estimate immediately before our measurement
+at step k will be designated
+</p>
+
+\begin{equation}
+\hat{x}^-_k
+\end{equation}
+
+<p>
+The value of this term is our expected value of the system at time
+step k. To our best knowable, it will evolve according to our estimate
+of the state.
+</p>
+
+\begin{equation}
+\hat{x}^-_k = A \hat{x}_{k-1}
+\end{equation}
+
+<p>
+In Bayesian terms, we can speak of our state before the measurement as
+our <b>prior</b> and our state after the measurement given the measurement
+as the <b>posterior</b>. We can calculate the error before the measurement
+and after the measurement (note both of these are still at the same
+time step k)
+</p>
+
+\begin{align}
+e_k^- = x_k - \hat{x}_k^- \\
+e_k = x_k - \hat{x}_k
+\end{align}
+
+<p>
+The prior and posterior estimate error covariances can be represented
+with the standard definition of covariance and then substituing in our
+definition of error above
+</p>
+
+\begin{align}
+P^-_k = E[(x_k - \hat{x}^-_k ) (x_k - \hat{x}^-_k)^T] = E[e^-_k (e^-_k)^T] \\
+P_k = E[(x_k - \hat{x}_k) (x_k - \hat{x}_k)^T] =E[e_k e^T_k]
+\end{align}
+
+<p>
+So what we finally want is the optimal way to combine the measurement
+z<sub>k</sub> with the estimate of the state up until that point. We can
+represent that as
+</p>
+
+\begin{equation}
+\hat{x}_k = \hat{x}^-_k + K (z_k - H \hat{x}^-_k)
+\end{equation}
+
+<p>
+Because H from above relates the state of the system to the
+measurement we get, H will relate the prior state estimate to
+<b>predicted measurement</b>. So will will use some <b>gain</b> or <b>blending
+factor</b> represented by the n x m matrix K to combine the difference
+between the measurement and predicted measurement.
+</p>
+
+<p>
+K is determined to be the value that minimizes the posterior error
+covariance, which we defined above. So with substitutions,
+expectations and derivatives we get a result that depends on H and the
+variances of our estimate and measurement. So the greater the variance
+of our estimate, the less it will be weighted and vice versa.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-4" class="outline-3">
+<h3 id="sec-3-4"><span class="section-number-3">3.4</span> Algorithm</h3>
+<div class="outline-text-3" id="text-3-4">
+<p>
+So for each unit k, we need to update our state estimate and then
+incorporate the feedback. Our <b>state prediction</b> (also known as our
+<b>prior estimate</b>) is generated from our
+stochastic linear model and therefore is equal to
+</p>
+
+\begin{equation}
+\hat{x}^-_k = A \hat{x}_{k-1} + B u_{k-1}
+\end{equation}
+
+<p>
+Our gain term, K, incorporates the variances of the <b>prior</b> as
+well as the measurement. Therefore we also have to update the of the
+prior, which was previously equal to the variance of the posterior on
+the last time step, with some increase due to time. We previously
+defined the <b>prior estimate covariance</b> and <b>posterior estimate covariance</b> 
+</p>
+
+\begin{align}
+P^-_k = E[(x_k - \hat{x}^-_k ) (x_k - \hat{x}^-_k)^T] = E[e^-_k (e^-_k)^T] \\
+P_k = E[(x_k - \hat{x}_k) (x_k - \hat{x}_k)^T] =E[e_k e^T_k]
+\end{align}
+
+<p>
+We see that our prior estimate covariance involves both the true value
+of the system and the prior estimate of the system from the current
+step k. We do not have this information available to us. If we
+consider how the current state of the system evolves from the linear
+stochastic model:
+</p>
+
+\begin{equation}
+x_k = Ax_{k-1} + q_{k-1}
+\end{equation}
+
+<p>
+we can perform some substituion from our <b>prior</b> estimate equation
+above (assuming B=0) and the linear model equation.
+</p>
+
+\begin{align}
+P^-_k &= E[(x_k - \hat{x}^-_k ) (x_k - \hat{x}^-_k)^T] \\
+&= E[((Ax_{k-1} + q_{k-1}) - A \hat{x}_{k-1})(Ax_{k-1} + q_{k-1} - A \hat{x}_{k-1})] \\
+\end{align}
+
+<p>
+A lot of horrifying algebra will result in this equation for the
+variance
+</p>
+
+\begin{equation}
+P^-_k = AP_{k-1}A^T+Q
+\end{equation}
+
+<p>
+Updating the measurement is a lot simplier and just involves the
+equations we derived earlier.
+</p>
+
+\begin{align}
+K_k = P^-_k H^T (HP^-_k H^T + R)^-1 \\
+\hat{x}_k = \hat{x}^-_k + K_k(z_k - H \hat{x}^-_k) \\
+P_k = (1 - K_k H)P^-_k
+\end{align}
+
+<p>
+So our steps in order are 1) compute Kalman gain K<sub>k</sub> ; 2) measure to
+get z<sub>k</sub> ; 3) generate the <b>posterior</b> from the <b>prior</b>; 4) get
+<b>posterior convariance</b>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-5" class="outline-3">
+<h3 id="sec-3-5"><span class="section-number-3">3.5</span> Extended Kalman Filter</h3>
+<div class="outline-text-3" id="text-3-5">
+</div><div id="outline-container-sec-3-5-1" class="outline-4">
+<h4 id="sec-3-5-1"><span class="section-number-4">3.5.1</span> Concept</h4>
+<div class="outline-text-4" id="text-3-5-1">
+<p>
+Extended Kalman filter is a tool for dealing with a nonlinear process,
+nonlinear measurement-state relationship or both.
+</p>
+
+<p>
+To apply the Kalman filter to these situations, the equations describe
+the system (and measurement if applicable) need to be linearized.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-5-2" class="outline-4">
+<h4 id="sec-3-5-2"><span class="section-number-4">3.5.2</span> Nonlinear System equations</h4>
+<div class="outline-text-4" id="text-3-5-2">
+<p>
+So our system can be represented by a nonlinear stochastic difference equation
+</p>
+
+\begin{equation}
+x_k = f(x_{k-1}, u_{k-1}, w_{k-1}) = f(x_{k-1}, u_{k-1}) + w_{k-1}
+\end{equation}
+
+<p>
+and a nonlinear measurement equation
+</p>
+
+\begin{equation}
+z_k = h(x_k,v_k) = h(x_k) + v_k
+\end{equation}
+</div>
+</div>
+<div id="outline-container-sec-3-5-3" class="outline-4">
+<h4 id="sec-3-5-3"><span class="section-number-4">3.5.3</span> Linearization</h4>
+<div class="outline-text-4" id="text-3-5-3">
+<p>
+How are we going to most accurately linearize the system above? In
+other words, we want to pick f(?) to best model the system. We
+cannot pick our initial condition point, because as we move forward in
+the state of the system, the model will become less and less
+accurate. f(x<sub>k-1</sub>) would be a good choice, but we do not have access
+to the true value of the state. \hat{x}<sub>k-1</sub> is information we do
+have access to, but we again run into problems because we do not know
+w<sub>k-1</sub> which is the process noise at the last step. Therefore, our
+best choice of a point to linearize around is our function evaluated
+at \hat{x}<sub>k-1</sub> without the noise. We will define these points as
+follows:
+</p>
+
+\begin{equation}
+\tilde{x}_k = f(\hat{x}_{k-1} , u_{k-1} , 0)
+\end{equation}
+
+\begin{equation}
+\tilde{z}_k = f(\tilde{x}_k, 0)
+\end{equation}
+
+<p>
+So in summary, we are going to linearize our system about the point
+where w<sub>k-1</sub>=0 and x<sub>k-1</sub> = \hat{x}<sub>k-1</sub> becuase this is the best
+informatino available to us and will therefore give the best
+estimate. We can do this by taking the multivariate Taylor series
+expansion and discarding the terms higher than second order:
+</p>
+
+\begin{align}
+f(x,y) &= f(a,b) + f_x(a,b)(x-a) + f_y(a,b)(x-b) \\
+
+x_k = f(x_{k-1},w_{k-1}) &=  f(a,b) + f_{x_{k-1}}(a,b)(x_{k-1}-a) + f_{w_{k-1}}(a,b)(w_{k-1}-b)\\
+
+&= f(\hat{x}_{k-1}, u_{k-1}, 0) + (f_{x_{k-1}}(\hat{x}_{k-1}
+, u_{k-1} , 0))(x-\hat{x}_{k-1}) + (f_{w_{k-1}}(\hat{x}_{k-1},
+u_{k-1}, 0))(w_{k-1}-0) \\
+
+&= \tilde{x}_k + (f_{x_{k-1}}(\hat{x}_{k-1}
+, u_{k-1} , 0))(x-\hat{x}_{k-1}) + (f_{w_{k-1}}(\hat{x}_{k-1},
+u_{k-1}, 0))(w_{k-1})
+
+\end{align}
+
+<p>
+We can follow a similar procedure of linearizing the measurement value
+about ~{z<sub>k</sub>} to find the following
+</p>
+
+\begin{equation}
+z_k = \tilde{z}_k + (h_{x_k}(\tilde{z}_k, 0))(x_k - \tilde{x}_k) + (h_{v_k}(\tilde{z}_k, 0))(v_k)
+\end{equation}
+
+<p>
+All of our equations are linearized around \hat{x}<sub>k</sub>, so this is our
+best guess or <b>prediction</b> of what is to come. 
+</p>
+
+<p>
+We can make some of equations easier to look at by defining the
+following terms
+</p>
+
+\begin{align}
+A &= (f_{x_{k-1}}(\hat{x}_{k-1}
+, u_{k-1} , 0)) \\
+W &= (f_{w_{k-1}}(\hat{x}_{k-1},
+u_{k-1}, 0)) \\
+H &= (h_{x_k}(\tilde{z}_k, 0)) \\
+V &= (h_{v_k}(\tilde{z}_k, 0))
+\end{align}
+</div>
+</div>
+<div id="outline-container-sec-3-5-4" class="outline-4">
+<h4 id="sec-3-5-4"><span class="section-number-4">3.5.4</span> Determine Covariance</h4>
+<div class="outline-text-4" id="text-3-5-4">
+<p>
+We must also then
+determine the <b>covariance</b> associated with this. More horrifying
+algebra will lead us to the following
+</p>
+
+\begin{align}
+P^-_k &= E[(x_k - \tilde{x}_k)(x_k - \tilde{x}_k)] \\
+&= E[(A_k (x_{k-1} - \hat{x}_k{k-1}) + W_k w_{k-1})(A_k (x_{k-1} -
+\hat{x}_k{k-1}) + W_k w_{k-1})^T \\
+&= ...Algebra... \\
+&= A_k P_{k-1} A^T_k + W_k Q_{k-1} W^T_k
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-sec-3-5-5" class="outline-4">
+<h4 id="sec-3-5-5"><span class="section-number-4">3.5.5</span> Equations</h4>
+<div class="outline-text-4" id="text-3-5-5">
+<p>
+In the linear Kalman filter, the predictions were generated by taking
+the expectation of the equations governing the system equations. For
+the extended Kalman filter, we do not take the expectation of these
+nonlinear functions, but instead <b>estimate</b> as a function of the prior
+mean value. Because the mean value for noise should be zero, noise is
+not included in these estimates.
+</p>
+
+<p>
+<b>Time update equations</b>
+</p>
+
+\begin{align}
+\hat{x}^-_k &= f(\hat{x}_{k-1}, u_{k-1}, 0) \\
+P^-_k &= A_k P_{k-1} A^T_k + W_k Q_{k-1} W^T_k
+\end{align}
+
+<p>
+<b>Measurement update equations</b>
+</p>
+\begin{align}
+K_k &= P^-_k H^T_k (H_k P^-_k H^T_k + V_k R_k V^T_k)^{-1} \\
+\hat{x}_k &= \hat{x}^-_k + K_k (z_k - h( \hat{x}^-_k, 0)) \\
+P_k &= (1 - K_k H_k) P^-_k
+\end{align}
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3-6" class="outline-3">
+<h3 id="sec-3-6"><span class="section-number-3">3.6</span> Unscented Kalman Filter</h3>
+<div class="outline-text-3" id="text-3-6">
+</div><div id="outline-container-sec-3-6-1" class="outline-4">
+<h4 id="sec-3-6-1"><span class="section-number-4">3.6.1</span> Concept</h4>
+<div class="outline-text-4" id="text-3-6-1">
+<p>
+In essence, the probability distribution is being approximated rather
+than approximating the non-linear system.
+</p>
+
+<p>
+Choses sample points to represent the true mean and covariance of
+Gaussian random variables.. Propogate these values through the true
+non linear system.
+</p>
+
+<p>
+The chosen point are known as <b>sigma points</b> which have corresponding weights.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-6-2" class="outline-4">
+<h4 id="sec-3-6-2"><span class="section-number-4">3.6.2</span> Unscented Transform</h4>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> BCI</h2>
+<div class="outline-text-2" id="text-4">
+</div><div id="outline-container-sec-4-1" class="outline-3">
+<h3 id="sec-4-1"><span class="section-number-3">4.1</span> Parameters</h3>
+<div class="outline-text-3" id="text-4-1">
+</div><div id="outline-container-sec-4-1-1" class="outline-4">
+<h4 id="sec-4-1-1"><span class="section-number-4">4.1.1</span> Standard Kalman</h4>
+<div class="outline-text-4" id="text-4-1-1">
+<p>
+z<sub>k</sub> is a C length vector that contains firing rates for C neurons.
+</p>
+
+<p>
+H relates the firing rates to the state (which could be things like
+hand velocity in multiple directions, position, force, EMG, etc)
+</p>
+
+<p>
+R is the covariance of the measurement (zero mean and normally
+distributed is assumed for Kalman). Because the firing rate data is
+not necessarily this way, some groups have transformed it (square
+root) to make it better modeled by a normal distribution. Can be used
+full or not full?
+</p>
+
+<p>
+A is the size of the states estimated
+</p>
+
+<p>
+There is probably a time lag between the encoding firing rate and the
+state of the system that results (x<sub>k</sub> should consider z<sub>k-i</sub> where i
+represents some step lag). Cells can be assumed to have <b>uniform lag</b>
+or <b>nonuniform lag</b>. Nonuniform lag is probably better. [<a href="#Wu2006a">9</a>].
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-4-2" class="outline-3">
+<h3 id="sec-4-2"><span class="section-number-3">4.2</span> Learning and Decoding</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+The matrices A, H R, and Q all have to be learned.
+</p>
+
+<p>
+If they are to maximize the join probability p(x,z) the solutions are [<a href="#Wu2006a">9</a>]
+</p>
+
+\begin{align}
+A = ( \sum_{k=2}^M (x_k x^T_{k-1})) ( \sum_{k=2}^M (x_{k-1} x^T_{k-1}))^{-1}
+\\
+W = 1/(M-1) ( \sum_{k=2}^M (x_k x^T_k) - A \sum_{k=2}^M (x_{k-1}
+x^T_k)) \\
+H = (\sum_{k=1}^M (z_k x_k^T))(\sum_{k=1}^M (x_k x_k^T))^{-1} \\
+Q = 1/M (\sum_{k=1}^M (z_k z_k^T) - H \sum_{k=1}^M (x_k z_k^T))
+\end{align}
+</div>
+</div>
+
+<div id="outline-container-sec-4-3" class="outline-3">
+<h3 id="sec-4-3"><span class="section-number-3">4.3</span> Experiments</h3>
+<div class="outline-text-3" id="text-4-3">
+<p>
+First Wei Wu paper citation is messed up.
+</p>
+
+<p>
+[<a href="#Gao2002">2</a>]
+</p>
+
+<p>
+[<a href="#Wu2006a">9</a>] - measuring the error of position (but calculating the
+state vector for position, velocity and acceleration) they estimating
+several components of the kalman filter. Found that optimal lag was
+nonuniform for some tasks, but not by much and the simplicity of using
+a uniform time lag was better. Accuracy increased with number of
+cells. Found that their model was better than the population vector and
+linear filter. Did not compare to neural network.
+</p>
+
+<p>
+[<a href="#Li2009">7</a>] - unscented Kalman Filter
+</p>
+
+<p>
+[<a href="#Kim2008">5</a>]
+</p>
+
+<p>
+[<a href="#Kim2011">6</a>]
+</p>
+
+<p>
+[<a href="#Hochberg2012">4</a>]
+</p>
+
+<p>
+[<a href="#Gilja2012">3</a>] - recalibrated feedback intention trained kalman
+filter (ReFIT-KF)
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> Reviews</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+[<a href="#Maybeck1979a">8</a>] excellent introduction to Kalman filters. I mean
+EXCELLENT
+</p>
+
+<p>
+<a href="http://greg.czerniak.info/guides/kalman1/">http://greg.czerniak.info/guides/kalman1/</a> - really great summary of
+all of the equations and has a couple of examples (1 variable and
+multi variable) with code attached.
+</p>
+
+<p>
+<a href="http://www.cs.unc.edu/~welch/kalman/kalmanIntro.html">http://www.cs.unc.edu/~welch/kalman/kalmanIntro.html</a> - contains more
+great introductary material building the filter from first principles.
+</p>
+
+<p>
+[<a href="#Bashashati2007">1</a>]
+</p>
+
+<div id="bibliography">
+<h2>References</h2>
+
+</div>
+<table>
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="Bashashati2007">1</a>]
+</td>
+<td class="bibtexitem">
+Ali Bashashati, Mehrdad Fatourechi, Rabab&nbsp;K Ward, and Gary&nbsp;E Birch.
+ A survey of signal processing algorithms in brain-computer
+  interfaces based on electrical brain signals.
+ <em>Journal of neural engineering</em>, 4(2):R32-57, June 2007.
+[&nbsp;<a href="library_bib.html#Bashashati2007">bib</a>&nbsp;| 
+<a href="http://dx.doi.org/10.1088/1741-2560/4/2/R03">DOI</a>&nbsp;| 
+<a href="http://www.ncbi.nlm.nih.gov/pubmed/17409474">http</a>&nbsp;]
+
+</td>
+</tr>
+
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="Gao2002">2</a>]
+</td>
+<td class="bibtexitem">
+Yun Gao, Michael&nbsp;J. Black, Elie Bienenstock, Shy Shoham, and John&nbsp;P. Donoghue.
+ Probabilistic Inference of Hand Motion from Neural Activity in Motor
+  Cortex.
+ In <em>Advances in Neural Information Processing Systems</em>, pages
+  213-220, 2002.
+[&nbsp;<a href="library_bib.html#Gao2002">bib</a>&nbsp;| 
+<a href="http://papers.nips.cc/paper/1997-probabilistic-inference-of-hand-motion-from-neural-activity-in-motor-cortex">http</a>&nbsp;]
+
+</td>
+</tr>
+
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="Gilja2012">3</a>]
+</td>
+<td class="bibtexitem">
+Vikash Gilja, Paul Nuyujukian, Cindy&nbsp;A Chestek, John&nbsp;P Cunningham, Byron&nbsp;M Yu,
+  Joline&nbsp;M Fan, Mark&nbsp;M Churchland, Matthew&nbsp;T Kaufman, Jonathan&nbsp;C Kao, Stephen&nbsp;I
+  Ryu, and Krishna&nbsp;V Shenoy.
+ A high-performance neural prosthesis enabled by control algorithm
+  design.
+ <em>Nature neuroscience</em>, 15(12):1752-7, December 2012.
+[&nbsp;<a href="library_bib.html#Gilja2012">bib</a>&nbsp;| 
+<a href="http://dx.doi.org/10.1038/nn.3265">DOI</a>&nbsp;| 
+<a href="http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=3638087\&tool=pmcentrez\&rendertype=abstract">http</a>&nbsp;]
+
+</td>
+</tr>
+
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="Hochberg2012">4</a>]
+</td>
+<td class="bibtexitem">
+Leigh&nbsp;R Hochberg, Daniel Bacher, Beata Jarosiewicz, Nicolas&nbsp;Y Masse, John&nbsp;D
+  Simeral, Joern Vogel, Sami Haddadin, Jie Liu, Sydney&nbsp;S Cash, Patrick van&nbsp;der
+  Smagt, and John&nbsp;P Donoghue.
+ Reach and grasp by people with tetraplegia using a neurally
+  controlled robotic arm.
+ <em>Nature</em>, 485(7398):372-5, May 2012.
+[&nbsp;<a href="library_bib.html#Hochberg2012">bib</a>&nbsp;| 
+<a href="http://dx.doi.org/10.1038/nature11076">DOI</a>&nbsp;| 
+<a href="http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=3640850\&tool=pmcentrez\&rendertype=abstract">http</a>&nbsp;]
+
+</td>
+</tr>
+
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="Kim2008">5</a>]
+</td>
+<td class="bibtexitem">
+Sung-Phil Kim, John&nbsp;D Simeral, Leigh&nbsp;R Hochberg, John&nbsp;P Donoghue, and Michael&nbsp;J
+  Black.
+ Neural control of computer cursor velocity by decoding motor
+  cortical spiking activity in humans with tetraplegia.
+ <em>Journal of neural engineering</em>, 5(4):455-76, December 2008.
+[&nbsp;<a href="library_bib.html#Kim2008">bib</a>&nbsp;| 
+<a href="http://dx.doi.org/10.1088/1741-2560/5/4/010">DOI</a>&nbsp;| 
+<a href="http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=2911243\&tool=pmcentrez\&rendertype=abstract">http</a>&nbsp;]
+
+</td>
+</tr>
+
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="Kim2011">6</a>]
+</td>
+<td class="bibtexitem">
+Sung-Phil Kim, John&nbsp;D Simeral, Leigh&nbsp;R Hochberg, John&nbsp;P Donoghue, Gerhard&nbsp;M
+  Friehs, and Michael&nbsp;J Black.
+ Point-and-click cursor control with an intracortical neural
+  interface system by humans with tetraplegia.
+ <em>IEEE transactions on neural systems and rehabilitation
+  engineering : a publication of the IEEE Engineering in Medicine and Biology
+  Society</em>, 19(2):193-203, April 2011.
+[&nbsp;<a href="library_bib.html#Kim2011">bib</a>&nbsp;| 
+<a href="http://dx.doi.org/10.1109/TNSRE.2011.2107750">DOI</a>&nbsp;| 
+<a href="http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=3294291\&tool=pmcentrez\&rendertype=abstract">http</a>&nbsp;]
+
+</td>
+</tr>
+
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="Li2009">7</a>]
+</td>
+<td class="bibtexitem">
+Zheng Li, Joseph&nbsp;E O'Doherty, Timothy&nbsp;L Hanson, Mikhail&nbsp;A Lebedev, Craig&nbsp;S
+  Henriquez, and Miguel A&nbsp;L Nicolelis.
+ Unscented Kalman filter for brain-machine interfaces.
+ <em>PloS one</em>, 4(7):e6243, January 2009.
+[&nbsp;<a href="library_bib.html#Li2009">bib</a>&nbsp;| 
+<a href="http://dx.doi.org/10.1371/journal.pone.0006243">DOI</a>&nbsp;| 
+<a href="http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=2705792\&tool=pmcentrez\&rendertype=abstract">http</a>&nbsp;]
+
+</td>
+</tr>
+
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="Maybeck1979a">8</a>]
+</td>
+<td class="bibtexitem">
+Peter Maybeck.
+ <em>Stochastic models, estimation, and control</em>, volume 141 of
+  <em>Mathematics in Science and Engineering</em>.
+ Elsevier, 1979.
+[&nbsp;<a href="library_bib.html#Maybeck1979a">bib</a>&nbsp;| 
+<a href="http://dx.doi.org/10.1016/S0076-5392(08)62166-9">DOI</a>&nbsp;| 
+<a href="http://www.sciencedirect.com/science/article/pii/S0076539208621669">http</a>&nbsp;]
+
+</td>
+</tr>
+
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="Wu2006a">9</a>]
+</td>
+<td class="bibtexitem">
+Wei Wu, Yun Gao, Elie Bienenstock, John&nbsp;P Donoghue, and Michael&nbsp;J Black.
+ Bayesian population decoding of motor cortical activity using a
+  Kalman filter.
+ <em>Neural computation</em>, 18(1):80-118, January 2006.
+[&nbsp;<a href="library_bib.html#Wu2006a">bib</a>&nbsp;| 
+<a href="http://dx.doi.org/10.1162/089976606774841585">DOI</a>&nbsp;| 
+<a href="http://www.ncbi.nlm.nih.gov/pubmed/16354382">http</a>&nbsp;]
+
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Paul Thompson</p>
+<p class="date">Created: 2014-09-25 Thu 20:23</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.3.50.2 (<a href="http://orgmode.org">Org</a> mode 8.2.7c)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,651 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Kinetics</title>
+<!-- 2014-09-25 Thu 20:23 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Paul Thompson" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/javascript" src="http://orgmode.org/mathjax/MathJax.js"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        // Only one of the two following lines, depending on user settings
+        // First allows browser-native MathML display, second forces HTML/CSS
+        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Kinetics</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. Definition</a></li>
+<li><a href="#sec-2">2. Overview</a></li>
+<li><a href="#sec-3">3. Themes and Concepts</a>
+<ul>
+<li><a href="#sec-3-1">3.1. Type of Force</a></li>
+<li><a href="#sec-3-2">3.2. Experimental Conditions</a></li>
+<li><a href="#sec-3-3">3.3. Isometric</a></li>
+</ul>
+</li>
+<li><a href="#sec-4">4. Experimental Evidence</a>
+<ul>
+<li><a href="#sec-4-1">4.1. Single Joint Studies</a>
+<ul>
+<li><a href="#sec-4-1-1">4.1.1. Experiments</a></li>
+<li><a href="#sec-4-1-2">4.1.2. Concepts</a></li>
+</ul>
+</li>
+<li><a href="#sec-4-2">4.2. Whole Arm Studies</a>
+<ul>
+<li><a href="#sec-4-2-1">4.2.1. Experiments</a></li>
+<li><a href="#sec-4-2-2">4.2.2. Concepts</a></li>
+</ul>
+</li>
+<li><a href="#sec-4-3">4.3. Isometric Studies</a>
+<ul>
+<li><a href="#sec-4-3-1">4.3.1. Experiments</a></li>
+<li><a href="#sec-4-3-2">4.3.2. Concepts</a></li>
+</ul>
+</li>
+<li><a href="#sec-4-4">4.4. Multiple Tasks</a>
+<ul>
+<li><a href="#sec-4-4-1">4.4.1. Experiments</a></li>
+<li><a href="#sec-4-4-2">4.4.2. Concepts</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#sec-5">5. Reviews</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Definition</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Kinetics, or dynamics, considers the causes of motion, which in practical terms means its forces and torques. In neuroscience, kinetics are used in reference to 1) the forces of motion of different parts of the body and 2) the encoding of those forces in the cortex. Compare to <a href="../Kinematics/Kinematics.html">kinematics</a>, which represent the motion of a body without considering the cause (velocity, position).
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Overview</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+There seems to be reasonable evidence that the cortex has <b>something</b> to do with force output, but what is unclear. M1 is more correlated with forces than any other part. In particular, experiments done in the caudal part of M1 (where Corticomotorneurons happen to be) seem to give the best evidence about force-neuron relations.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Themes and Concepts</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> Type of Force</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+<b>Static</b> force is unchanging during the experiment
+</p>
+
+<p>
+<b>Dynamic</b> force changes during the experiment. Not as well studied.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2"><span class="section-number-3">3.2</span> Experimental Conditions</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+<b>Single Joint</b> usually just involving the wrist
+</p>
+
+<p>
+<b>Whole Arm</b> try to more accurately emulate actual arm movements. May be in 2D or 3D
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-3" class="outline-3">
+<h3 id="sec-3-3"><span class="section-number-3">3.3</span> Isometric</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+No movement during the task. This became very interesting after the population vector theory was created in 1982.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> Experimental Evidence</h2>
+<div class="outline-text-2" id="text-4">
+</div><div id="outline-container-sec-4-1" class="outline-3">
+<h3 id="sec-4-1"><span class="section-number-3">4.1</span> Single Joint Studies</h3>
+<div class="outline-text-3" id="text-4-1">
+</div><div id="outline-container-sec-4-1-1" class="outline-4">
+<h4 id="sec-4-1-1"><span class="section-number-4">4.1.1</span> Experiments</h4>
+<div class="outline-text-4" id="text-4-1-1">
+<p>
+[<a href="#Evarts1968">Evarts1968</a>]
+[<a href="#Evarts1969">Evarts1969</a>]
+[<a href="#Cheney1980">4</a>]
+[<a href="#Fetz1980">Fetz1980</a>]
+[<a href="#Evarts1983">5</a>]
+[<a href="#Bennet1994">Bennet1994</a>]
+[<a href="#Hepp-Reymond1999">Hepp-Reymond1999</a>]
+[<a href="#Maier1993">Maier1993</a>]
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4-1-2" class="outline-4">
+<h4 id="sec-4-1-2"><span class="section-number-4">4.1.2</span> Concepts</h4>
+<div class="outline-text-4" id="text-4-1-2">
+<p>
+<a href="../Corticomotorneurons/Corticomotorneurons.html">Corticomotorneurons</a>' activity vary with force during wrist movements [<a href="#Cheney1980">4</a>]. 
+</p>
+
+<p>
+Many studies showed that some neurons vary with kinetics, but at the same time there were many neurons that did not [<a href="#Kalaska2009">10</a>].
+</p>
+
+<p>
+Correlations of M1 activity with the force vector were often nonlinear [<a href="#Ashe1997">1</a>].
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-4-2" class="outline-3">
+<h3 id="sec-4-2"><span class="section-number-3">4.2</span> Whole Arm Studies</h3>
+<div class="outline-text-3" id="text-4-2">
+</div><div id="outline-container-sec-4-2-1" class="outline-4">
+<h4 id="sec-4-2-1"><span class="section-number-4">4.2.1</span> Experiments</h4>
+<div class="outline-text-4" id="text-4-2-1">
+<p>
+[<a href="#Kalaska1989">9</a>] Repeat of Evarts tasks in 2D. When a 2D movement task was perturbed by a constant force in different directions, there were neurons that responded by increasing force when muscles had to increase force to stay on task. At the same time, there were neurons that continued to respond mostly to direction, particularly in area 
+</p>
+
+<p>
+[<a href="#Gribble2002">7</a>]
+[<a href="#Cabel2001">3</a>]
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4-2-2" class="outline-4">
+<h4 id="sec-4-2-2"><span class="section-number-4">4.2.2</span> Concepts</h4>
+<div class="outline-text-4" id="text-4-2-2">
+<p>
+Support was gathered that M1 could represent joint centered kinetics.
+</p>
+
+<p>
+There was also support that this was <b>not</b> was what was happening in area 5, and it was difficult to find correlations.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-4-3" class="outline-3">
+<h3 id="sec-4-3"><span class="section-number-3">4.3</span> Isometric Studies</h3>
+<div class="outline-text-3" id="text-4-3">
+</div><div id="outline-container-sec-4-3-1" class="outline-4">
+<h4 id="sec-4-3-1"><span class="section-number-4">4.3.1</span> Experiments</h4>
+<div class="outline-text-4" id="text-4-3-1">
+<p>
+[<a href="#Georgopoulos1992">6</a>] - M1 was not related to force output but instead to the change in force or the net force. Basically M1 was tuned to the direction things ended up moving toward, not to where the original intention was to go.
+</p>
+
+<p>
+[<a href="#Taira1996">13</a>] static force study looking at the contribution of cells to direction and magnitude of force vector
+</p>
+
+<p>
+[<a href="#Boline2005">2</a>] dynamic force study. most of the cells were related only to the <b>direction</b> of dynamic force output. overlap between the static and dynamic cell populations
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4-3-2" class="outline-4">
+<h4 id="sec-4-3-2"><span class="section-number-4">4.3.2</span> Concepts</h4>
+<div class="outline-text-4" id="text-4-3-2">
+<p>
+M1 seems involved in isometric force output but is not directly signaling to muscles to do this [<a href="#Kalaska2009">10</a>]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-4-4" class="outline-3">
+<h3 id="sec-4-4"><span class="section-number-3">4.4</span> Multiple Tasks</h3>
+<div class="outline-text-3" id="text-4-4">
+</div><div id="outline-container-sec-4-4-1" class="outline-4">
+<h4 id="sec-4-4-1"><span class="section-number-4">4.4.1</span> Experiments</h4>
+<div class="outline-text-4" id="text-4-4-1">
+<p>
+[<a href="#Sergio2003">12</a>] isometric 2D
+[<a href="#Sergio2005">11</a>] isometric and reaching - this is a monster of an article that addresses a great many things.
+[<a href="#Hamel-Paquet2006">8</a>] area five and isometric
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4-4-2" class="outline-4">
+<h4 id="sec-4-4-2"><span class="section-number-4">4.4.2</span> Concepts</h4>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> Reviews</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+[<a href="#Ashe1997">1</a>] Detailed Review of early experiments linking cortical activity with output force
+</p>
+
+<p>
+[<a href="#Kalaska2009">10</a>] Comprehensive review motor cortex neural code which includes section on kinetics vs kinematics. 
+</p>
+
+<div id="bibliography">
+<h2>References</h2>
+
+</div>
+<table>
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="Ashe1997">1</a>]
+</td>
+<td class="bibtexitem">
+J&nbsp;Ashe.
+ Force and the motor cortex.
+ <em>Behavioural brain research</em>, 87(2):255-69, September 1997.
+[&nbsp;<a href="library_bib.html#Ashe1997">bib</a>&nbsp;| 
+<a href="http://www.ncbi.nlm.nih.gov/pubmed/9331494">http</a>&nbsp;]
+
+</td>
+</tr>
+
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="Boline2005">2</a>]
+</td>
+<td class="bibtexitem">
+Jyl Boline and James Ashe.
+ On the relations between single cell activity in the motor cortex
+  and the direction and magnitude of three-dimensional dynamic isometric
+  force.
+ <em>Experimental brain research</em>, 167(2):148-59, November 2005.
+[&nbsp;<a href="library_bib.html#Boline2005">bib</a>&nbsp;| 
+<a href="http://dx.doi.org/10.1007/s00221-005-0016-z">DOI</a>&nbsp;| 
+<a href="http://www.ncbi.nlm.nih.gov/pubmed/16193273">http</a>&nbsp;]
+
+</td>
+</tr>
+
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="Cabel2001">3</a>]
+</td>
+<td class="bibtexitem">
+D&nbsp;W Cabel, P&nbsp;Cisek, and S&nbsp;H Scott.
+ Neural activity in primary motor cortex related to mechanical loads
+  applied to the shoulder and elbow during a postural task.
+ <em>Journal of neurophysiology</em>, 86(4):2102-8, October 2001.
+[&nbsp;<a href="library_bib.html#Cabel2001">bib</a>&nbsp;| 
+<a href="http://www.ncbi.nlm.nih.gov/pubmed/11600665">http</a>&nbsp;]
+
+</td>
+</tr>
+
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="Cheney1980">4</a>]
+</td>
+<td class="bibtexitem">
+P&nbsp;D Cheney and E&nbsp;E Fetz.
+ Functional classes of primate corticomotoneuronal cells and their
+  relation to active force.
+ <em>Journal of neurophysiology</em>, 44(4):773-91, October 1980.
+[&nbsp;<a href="library_bib.html#Cheney1980">bib</a>&nbsp;| 
+<a href="http://www.ncbi.nlm.nih.gov/pubmed/6253605">http</a>&nbsp;]
+
+</td>
+</tr>
+
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="Evarts1983">5</a>]
+</td>
+<td class="bibtexitem">
+E&nbsp;V Evarts, C&nbsp;Fromm, J&nbsp;Kr&ouml;ller, and V&nbsp;A Jennings.
+ Motor Cortex control of finely graded forces.
+ <em>Journal of neurophysiology</em>, 49(5):1199-1215, May 1983.
+[&nbsp;<a href="library_bib.html#Evarts1983">bib</a>&nbsp;| 
+<a href="http://www.ncbi.nlm.nih.gov/pubmed/6864246">http</a>&nbsp;]
+
+</td>
+</tr>
+
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="Georgopoulos1992">6</a>]
+</td>
+<td class="bibtexitem">
+A&nbsp;P Georgopoulos, J&nbsp;Ashe, N&nbsp;Smyrnis, and M&nbsp;Taira.
+ The motor cortex and the coding of force.
+ <em>Science (New York, N.Y.)</em>, 256(5064):1692-5, June 1992.
+[&nbsp;<a href="library_bib.html#Georgopoulos1992">bib</a>&nbsp;| 
+<a href="http://www.ncbi.nlm.nih.gov/pubmed/1609282">http</a>&nbsp;]
+
+</td>
+</tr>
+
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="Gribble2002">7</a>]
+</td>
+<td class="bibtexitem">
+Paul&nbsp;L Gribble and Stephen&nbsp;H Scott.
+ Overlap of internal models in motor cortex for mechanical loads
+  during reaching.
+ <em>Nature</em>, 417(6892):938-41, June 2002.
+[&nbsp;<a href="library_bib.html#Gribble2002">bib</a>&nbsp;| 
+<a href="http://dx.doi.org/10.1038/nature00834">DOI</a>&nbsp;| 
+<a href="http://www.ncbi.nlm.nih.gov/pubmed/12087402">http</a>&nbsp;]
+
+</td>
+</tr>
+
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="Hamel-Paquet2006">8</a>]
+</td>
+<td class="bibtexitem">
+Catherine Hamel-P&acirc;quet, Lauren&nbsp;E Sergio, and John&nbsp;F Kalaska.
+ Parietal area 5 activity does not reflect the differential
+  time-course of motor output kinetics during arm-reaching and isometric-force
+  tasks.
+ <em>Journal of neurophysiology</em>, 95(6):3353-70, June 2006.
+[&nbsp;<a href="library_bib.html#Hamel-Paquet2006">bib</a>&nbsp;| 
+<a href="http://dx.doi.org/10.1152/jn.00789.2005">DOI</a>&nbsp;| 
+<a href="http://www.ncbi.nlm.nih.gov/pubmed/16481461">http</a>&nbsp;]
+
+</td>
+</tr>
+
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="Kalaska1989">9</a>]
+</td>
+<td class="bibtexitem">
+J&nbsp;F Kalaska, D&nbsp;A Cohen, M&nbsp;L Hyde, and M&nbsp;Prud'homme.
+ A comparison of movement direction-related versus load
+  direction-related activity in primate motor cortex, using a two-dimensional
+  reaching task.
+ <em>The Journal of neuroscience : the official journal of the
+  Society for Neuroscience</em>, 9(6):2080-102, June 1989.
+[&nbsp;<a href="library_bib.html#Kalaska1989">bib</a>&nbsp;| 
+<a href="http://www.ncbi.nlm.nih.gov/pubmed/2723767">http</a>&nbsp;]
+
+</td>
+</tr>
+
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="Kalaska2009">10</a>]
+</td>
+<td class="bibtexitem">
+John&nbsp;F Kalaska.
+ From intention to action: motor cortex and the control of reaching
+  movements.
+ <em>Advances in experimental medicine and biology</em>, 629:139-78,
+  January 2009.
+[&nbsp;<a href="library_bib.html#Kalaska2009">bib</a>&nbsp;| 
+<a href="http://dx.doi.org/10.1007/978-0-387-77064-2\_8">DOI</a>&nbsp;| 
+<a href="http://www.ncbi.nlm.nih.gov/pubmed/19227499">http</a>&nbsp;]
+
+</td>
+</tr>
+
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="Sergio2005">11</a>]
+</td>
+<td class="bibtexitem">
+Lauren&nbsp;E Sergio, Catherine Hamel-P&acirc;quet, and John&nbsp;F Kalaska.
+ Motor cortex neural correlates of output kinematics and kinetics
+  during isometric-force and arm-reaching tasks.
+ <em>Journal of neurophysiology</em>, 94(4):2353-78, October 2005.
+[&nbsp;<a href="library_bib.html#Sergio2005">bib</a>&nbsp;| 
+<a href="http://dx.doi.org/10.1152/jn.00989.2004">DOI</a>&nbsp;| 
+<a href="http://www.ncbi.nlm.nih.gov/pubmed/15888522">http</a>&nbsp;]
+
+</td>
+</tr>
+
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="Sergio2003">12</a>]
+</td>
+<td class="bibtexitem">
+Lauren&nbsp;E Sergio and John&nbsp;F Kalaska.
+ Systematic changes in motor cortex cell activity with arm posture
+  during directional isometric force generation.
+ <em>Journal of neurophysiology</em>, 89(1):212-28, January 2003.
+[&nbsp;<a href="library_bib.html#Sergio2003">bib</a>&nbsp;| 
+<a href="http://dx.doi.org/10.1152/jn.00016.2002">DOI</a>&nbsp;| 
+<a href="http://www.ncbi.nlm.nih.gov/pubmed/12522173">http</a>&nbsp;]
+
+</td>
+</tr>
+
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="Taira1996">13</a>]
+</td>
+<td class="bibtexitem">
+M&nbsp;Taira, J&nbsp;Boline, N&nbsp;Smyrnis, A&nbsp;P Georgopoulos, and J&nbsp;Ashe.
+ On the relations between single cell activity in the motor cortex
+  and the direction and magnitude of three-dimensional static isometric force.
+ <em>Experimental brain research</em>, 109(3):367-76, June 1996.
+[&nbsp;<a href="library_bib.html#Taira1996">bib</a>&nbsp;| 
+<a href="http://www.ncbi.nlm.nih.gov/pubmed/8817266">http</a>&nbsp;]
+
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Paul Thompson</p>
+<p class="date">Created: 2014-09-25 Thu 20:23</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.3.50.2 (<a href="http://orgmode.org">Org</a> mode 8.2.7c)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
