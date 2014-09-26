@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Optimal Feedback Control</title>
-<!-- 2014-09-25 Thu 21:14 -->
+<!-- 2014-09-25 Thu 21:20 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Paul Thompson" />
@@ -220,7 +220,7 @@ A <b>Controller</b> compares a <b>cost function</b> (goal + penalties) with the 
 <h3 id="sec-1-2"><span class="section-number-3">1.2</span> State Estimate</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
-The <b>state</b> of the system is estimated by integrating a <i>motor prediction</i> along with <b>sensory input</b>. What exactly the state represents (joint based vs higher level) is a matter of debate, and it is possible that multiple states exist that are related. A <i>Kalman Filter</i> is an engineering application which can also create state estimates from prediction and <a href="../FeedbackControl.html">feedback</a> This concept serves as a useful model of motor control.
+The <b>state</b> of the system is estimated by integrating a <a href="../FeedforwardControl.html">motor prediction</a> along with <b>sensory input</b>. What exactly the state represents (joint based vs higher level) is a matter of debate, and it is possible that multiple states exist that are related. A <a href="../KalmanFilter.html">Kalman Filter</a> is an engineering application which can also create state estimates from prediction and <a href="../FeedbackControl.html">feedback</a> This concept serves as a useful model of motor control.
 </p>
 </div>
 </div>
@@ -238,7 +238,7 @@ The <b>motor prediction</b> is generated when an <b>efference copy</b> input (co
 <h3 id="sec-1-4"><span class="section-number-3">1.4</span> Sensory Input</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
-The true <b>sensory input</b> considers current sensory information in the context of prior sensory information (see <i>Bayesian Decision Theory</i>) The sensory input is both <i>noisy</i> and delayed.
+The true <b>sensory input</b> considers current sensory information in the context of prior sensory information (see <a href="../BayesianDecisionTheory.html">Bayesian Decision Theory</a>) The sensory input is both <a href="../Noise.html">noisy</a> and delayed.
 </p>
 </div>
 </div>
@@ -415,7 +415,7 @@ Emanuel Todorov and Michael&nbsp;I Jordan.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Paul Thompson</p>
-<p class="date">Created: 2014-09-25 Thu 21:14</p>
+<p class="date">Created: 2014-09-25 Thu 21:20</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.3.50.2 (<a href="http://orgmode.org">Org</a> mode 8.2.7c)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
