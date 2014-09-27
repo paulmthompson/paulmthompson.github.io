@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<title>Linearization</title>
+<title>BayesianDecisionTheory</title>
 <!-- 2014-09-26 Fri 11:55 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
@@ -179,106 +179,133 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Linearization</h1>
-<div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#sec-1">1. Definition</a></li>
-<li><a href="#sec-2">2. Overview</a></li>
-<li><a href="#sec-3">3. Example</a></li>
-<li><a href="#sec-4">4. Taylor Series</a></li>
-</ul>
+<h1 class="title">BayesianDecisionTheory</h1>
+<p>
+Bayesian Decision Theory
+</p>
+
+<p>
+<a href="../Noise/Noise.html">Noise</a> at both sensory and motor causes there to be uncertainty
+in state estimation of the world. Uncertainty opens up the motor
+system to statistical analysis
+</p>
+
+<p>
+<a href="../BayesianStatistics/BayesianStatistics.html">Bayesian Stats</a> + <a href="../DecisionTheory/DecisionTheory.html">Decision Theory</a> = Bayesian Decision Theory
+</p>
+
+<p>
+Key experiment showed that subjects used Bayesian integration to
+estimate the position of a cursor [<a href="#Kording2004">4</a>]. With increasing
+noise of sensory input, subjects relied less on incoming sensory
+information and more on prior.
+</p>
+
+<p>
+May be important in perception as well
+</p>
+
+<p>
+Evidence that Bayesian stats are used when combining sensory
+information from more than one source [<a href="#Ernst2002">1</a>]
+</p>
+
+<p>
+Reviews
+</p>
+
+<p>
+[<a href="#Kording2006">5</a>]
+[<a href="#Franklin2011">3</a>]
+[<a href="#Ernst2004">2</a>]
+</p>
+
+<div id="bibliography">
+<h2>References</h2>
+
 </div>
-</div>
+<table>
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> Definition</h2>
-<div class="outline-text-2" id="text-1">
-<p>
-Linearization is the process of taking equation(s) governing a
-nonlinear system and approximating them as linear equations.
-</p>
-</div>
-</div>
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="Ernst2002">1</a>]
+</td>
+<td class="bibtexitem">
+Marc&nbsp;O Ernst and Martin&nbsp;S Banks.
+ Humans integrate visual and haptic information in a statistically
+  optimal fashion.
+ <em>Nature</em>, 415(6870):429-33, January 2002.
+[&nbsp;<a href="library_bib.html#Ernst2002">bib</a>&nbsp;| 
+<a href="http://dx.doi.org/10.1038/415429a">DOI</a>&nbsp;| 
+<a href="http://www.ncbi.nlm.nih.gov/pubmed/11807554">http</a>&nbsp;]
 
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> Overview</h2>
-</div>
+</td>
+</tr>
 
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3"><span class="section-number-2">3</span> Example</h2>
-<div class="outline-text-2" id="text-3">
-<p>
-The area of a circle is represented the equation
-</p>
-\begin{equation}
-A = \pi*r^2
-\end{equation}
 
-<p>
-We can represent the nonlinearity to a small change in area &delta;(A)
-to a small change in radius &delta;(r) the following way:
-</p>
-\begin{equation}
-A_0 + \delta(A) = \pi (r_0 + \delta(r))^2 = \pi (r_0^2 + 2 r_0
-\delta(r) + \delta(r)^2)
-\end{equation}
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="Ernst2004">2</a>]
+</td>
+<td class="bibtexitem">
+Marc&nbsp;O Ernst and Heinrich&nbsp;H B&uuml;lthoff.
+ Merging the senses into a robust percept.
+ <em>Trends in cognitive sciences</em>, 8(4):162-9, April 2004.
+[&nbsp;<a href="library_bib.html#Ernst2004">bib</a>&nbsp;| 
+<a href="http://dx.doi.org/10.1016/j.tics.2004.02.002">DOI</a>&nbsp;| 
+<a href="http://www.ncbi.nlm.nih.gov/pubmed/15050512">http</a>&nbsp;]
 
-<p>
-We can substract our normal area equation to show what &delta;(A)
-depends on
-</p>
+</td>
+</tr>
 
-\begin{equation}
-\delta(A) = \pi (2 r_0 \delta(r) + \delta(r)^2)
-\end{equation}
 
-<p>
-So we see that a small change in area is dependant on both a linear (2
-r<sub>0</sub> &delta;(r)) term and a nonlinear (&delta;(r)<sup>2</sup>) term. Therefore, we
-can linearize this equation by discarding the nonlinear term.
-</p>
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="Franklin2011">3</a>]
+</td>
+<td class="bibtexitem">
+David&nbsp;W Franklin and Daniel&nbsp;M Wolpert.
+ Computational mechanisms of sensorimotor control.
+ <em>Neuron</em>, 72(3):425-42, November 2011.
+[&nbsp;<a href="library_bib.html#Franklin2011">bib</a>&nbsp;| 
+<a href="http://dx.doi.org/10.1016/j.neuron.2011.10.006">DOI</a>&nbsp;| 
+<a href="http://www.ncbi.nlm.nih.gov/pubmed/22078503">http</a>&nbsp;]
 
-<p>
-\begin{equation}
-&delta;(A) = 2 &pi; r<sub>0</sub> &delta;(r)
-</p>
-<p>
-\begin{equation}
-</p>
+</td>
+</tr>
 
-<p>
-We see from above that the accuracy of our approximation will then
-depend on 1) the size of the change in r; and 2) the distance from
-r<sub>0</sub>. For this reason, linearization is often refered to as being taken
-"about a point" and the point that is selected can be critical.
-</p>
-</div>
-</div>
 
-<div id="outline-container-sec-4" class="outline-2">
-<h2 id="sec-4"><span class="section-number-2">4</span> Taylor Series</h2>
-<div class="outline-text-2" id="text-4">
-<p>
-Note that the derivation above is equivalent to the expanded Taylor
-series discarding the higher order terms.
-</p>
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="Kording2004">4</a>]
+</td>
+<td class="bibtexitem">
+Konrad&nbsp;P K&ouml;rding and Daniel&nbsp;M Wolpert.
+ Bayesian integration in sensorimotor learning.
+ <em>Nature</em>, 427(6971):244-7, January 2004.
+[&nbsp;<a href="library_bib.html#Kording2004">bib</a>&nbsp;| 
+<a href="http://dx.doi.org/10.1038/nature02169">DOI</a>&nbsp;| 
+<a href="http://www.ncbi.nlm.nih.gov/pubmed/14724638">http</a>&nbsp;]
 
-\begin{align}
-A(r) &= f(a) + f'(a)(r-a) + ... \\
-&= f(r_0) + f'(r_0)(r-r_0) \\
-&= \pi r_0^2 + 2 \pi r_0 (r-r_0) \\
-&= \pi r_0^2 + 2 \pi r_0 r - 2 \pi r_0^2 \\
-&= 2 \pi r_0 r - \pi r_0^2
-\end{align}
+</td>
+</tr>
 
-<p>
-If this was evaluated at r= r<sub>0</sub> + &delta;(r), we would have the same
-result of above
-</p>
-</div>
-</div>
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="Kording2006">5</a>]
+</td>
+<td class="bibtexitem">
+Konrad&nbsp;P K&ouml;rding and Daniel&nbsp;M Wolpert.
+ Bayesian decision theory in sensorimotor control.
+ <em>Trends in cognitive sciences</em>, 10(7):319-26, July 2006.
+[&nbsp;<a href="library_bib.html#Kording2006">bib</a>&nbsp;| 
+<a href="http://dx.doi.org/10.1016/j.tics.2006.05.003">DOI</a>&nbsp;| 
+<a href="http://www.ncbi.nlm.nih.gov/pubmed/16807063">http</a>&nbsp;]
+
+</td>
+</tr>
+</table>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Paul Thompson</p>
