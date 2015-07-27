@@ -1,0 +1,24 @@
+
+#+TITLE: Non Invasive BCI
+
+* Definition
+
+* Overview
+
+* Experiments
+
+\cite{Birbaumer1999} - EEG spelling device
+
+\cite{Wolpaw2004}
+
+\cite{Hinterberger2003}
+
+\cite{McFarland2010}
+
+\cite{Yanagisawa2011} - ECoG with prosthetic hand
+
+* Reviews
+
+
+
+#+BIBLIOGRAPHY: library plain option:--no-keywords option:--no-abstract limit:t

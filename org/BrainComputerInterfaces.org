@@ -1,0 +1,211 @@
+
+#+TITLE: Brain Computer Interfaces
+
+* Definition
+
+* Overview
+This is meant to be a summary and historical account of brain computer
+interface literature where a significant breakthrough took place in
+any of the components of 1) electrodes 2) decoders 3) effectors or 4)
+feedback. This is not meant to be all encompassing, and in particular,
+important experiments regarding
+[[../BCILearning.html][Learning and BCI]] and
+[[../BCISensoryFeedback.html][sensory feedback]] may be located in their own articles.
+
+* Themes and Concepts
+
+** Kinetics vs Kinematics
+
+** Experimental Variables
+
+*Mouse Cursor*
+
+*Virtual Reality*
+
+*Robotic Arm* with multiple degrees of freedom
+
+*Species* with rat vs monkey vs person
+
+*Number of Electrodes*
+
+*Type of electrode*
+
+* Experimental Evidence
+
+** Kennedy 1998
+\cite{Kennedy1998} - ALS patient is implanted with an electrode that
+she is able to control the activity of.
+
+** Chapin 1999
+\cite{Chapin1999} - (Nicolelis Group) Trained *rats* to get water from
+a mechanism where a lever controlled a *1D robotic arm* that could get water. In
+neuroprosthetic mode, the lever no longer controlled the arm, and the
+electrical recordings instead moved the arm to get water. 4/6 rats
+succeeded. More neurons were better than single neurons. Pre lever
+signal was better than signals during the movement itself.
+
+** Wessberg 2000
+\cite{Wessberg2000} - (Nicolelis Group) Trained *monkeys* in two tasks: 1) 1D movement
+of a lever and 2) *3D robotic arm* movements to 1 of 4 locations. Trained on
+task 1 and then carried out task 1 and 2. There was another arm in MIT
+that moved too. Recorded from M1,PMd, and Parietal. 
+
+** Serruya 2002
+\cite{Serruya2002} - (Donoghue Group) *Monkeys* were able to move a *2D cursor* to a target using only 7-30 neurons.
+
+** Taylor 2002
+\cite{Taylor2002} - (Schwartz Group) *Monkeys* moved a *3D virtual cursor*. compared open loop and closed loop control and found that
+closed loop control was better, and that closed loop control could
+improve with time. recorded from ~18 neurons. Created a *coadaptive*
+algorithm that would not require training with able bodied monkeys
+(could start with hands restrained) 
+
+** Talwar 2002
+\cite{Talwar2002} - (Chapin Group) Stimulated *rats* S1 and medial
+forebrain bundle to signal reward in a maze. The rats were stimulated
+to "feel" touch of their whiskers on the left or right side to
+navigate the maze. Rats were removed from the maze to apply the
+learning in a new environment. MFB stimulate served as a forward cue.
+
+** Carmena 2003
+\cite{Carmena2003} - (Nicolelis Group) *monkeys* were implanted in
+dorsal premotor, SMA, M1, S1 medial intraparietal. Three tasks
+included: reaching, hand gripping, reach + grasp. compared recordings
+to position, velocity, gripping force and EMG. Monkeys held a pole
+that moved a 2D cursor and applying force caused the cursor to
+increase or decrease in size. For task 1, they had to move the cursor
+into the goal, task two they had to apply the appropriate grip force
+to expand the cursor into the size of the goal circle, in task three
+they had to do a combination of these two. A robot arm was eventually
+incoporated which had 6D of freedom wiht a 1D gripper. At this stage,
+the cursor position indicated the x and y coordinates of the hand and
+the size indicated the grip force. This caused a 60-90ms delay, which
+initially caused the performance to decline. Used a *linear
+model*. They found correlations with  hand position, velocity,
+gripping force and EMG, which had different respecitive correlations
+with different areas.
+
+** Musallam 2004
+\cite{Musallam2004} - (Andersen Group) *Monkeys* were implanted in the
+*medial intraparietal area* and performed a *3D? cursor* task. They
+found that monkeys performed better when they knew they were getting
+juice compared to water, and therefore reward type was correlated with
+better predictive ability of the neurons being recorded.
+
+** Santhanam 2006
+\cite{Santhanam2006} - (Shenoy Group) *Monkeys* were implanted in the
+*dorsal premotor cortex* who then performed a *2D cursor* task. The
+monkeys identified the final target location of the cursor and in this
+way, the BCI was able to work faster because there was less
+information in the middle to accumulate error.
+
+** Hochberg 2006
+\cite{Hochberg2006} - (Donoghue Group) *Human* with electrode array in
+*M1* was able to move a 2D cursor to perform simulated computer
+functions as well as control a 1D robotic hand and multi-joint arm. linear algothrim. 
+
+** Velliste 2008
+\cite{Velliste2008} - (Schwartz Group) *Monkeys* use a *4D arm* with
+gripper to perform a self-feeding task where they would grab food. Used
+population vector algorithm with 4 dimensions (3 arm + 1 hand).
+
+** Moritz 2008
+\cite{Moritz2008} - (Fetz Group) *Monkeys* were implanted in the wrist
+motor area and learned to use neurons to make a *2D cursor*. The wrist
+nerve was then blocked and monkeys controlled the cursor without any
+wrist movement to go along with it. Then, they connected FES to the
+wrist muscles and make the cursor controlled by wrist torque. Linear
+and inverse relationship to cell firing were both used. Extensors and
+Flexors were then both controlled. Argue for single cell control with
+many cells to many muscles in the future.
+
+** Mulliken 2008
+\cite{Mulliken2008} - (Andersen Group) *Monkey* was implanted with
+with two 32 electrode arrays (one in IPS, one in area 5). They
+performed a *2D cursor* task with joystick training. Had to fixate on
+the cursor to keep eye coordinate parietal signals
+constant. Used a Goal-based Kalman Filter which outperformed regular
+kalman filter, ridge filter and least squares to reconstructure
+trajectories from old data. Found that the parietal
+cortex encoded velocity 10ms in the future and position 40 ms in the
+future. Also had a ridge filter control cursor in real time.
+
+** Pohlmeer 2009
+\cite{Pohlmeer2009} - (Miller Group) Proof of concept were *monkeys*
+used *FES* to control wrist flexor muscles under a nerve block.
+where 
+
+** Simeral 2011
+\cite{Simeral2011} - (Donoghue Group) 1000 day followup of patient
+from \cite{Hochberg2006}. Repeated many of the 2D cursor and click
+tasks. Also did impedence measurements from all of the
+electrodes. They found that 72 were still recording spikes. They also did LFP
+recordings from all of the electrodes to see if they could be useful
+that that even if they were "broken." And found that all but 7 were
+able to record from LFP signals.
+
+** O'Doherty 2011
+\cite{ODoherty2011} - (Nicolelis Group) *Monkeys* performed a *2D
+avatar* task where they had to select the right object as indicated by
+ICMS feedback. They trained with a joystick and hovered over one of
+several objects which indicated a reward via microwire ICMS of a
+particular frequency. Had to multiplex neuron records (to account for
+ICMS) with clock. 
+
+** Gilja 2012
+\cite{Gilja2012} - (Shenoy Group) Used a new filter algorithm, the
+*recalibrated feedback intention trained Kalman filter (ReFIT-KF)* to
+have *monkeys* move a *2D cursor*. This was compared to a velocity-KF
+which has been previously used, and the ReFIT-KF was straighter,
+faster and easier to stop. Initiated control of cursor with
+relationship between neural activity and natural arm movements,
+instead of gradually backing off assistance. They are assuming that
+the desired output of the cursor is what they get, not some perfect
+cursor. Internal model = cursor position IRL
+
+** Hochberg 2012
+\cite{Hochberg2012} - (Donoghue Group) Two *humans* were implanted in
+M1 (one 5 years prior). They imagined controlling a robotic arm as it
+went through a pre-programmed routine; also imagined squeezing their
+hand. One subject used two different robotic arms (in different
+trials). Trials considered whether subjects could touch the goal and
+also whether they could grab the goal. Success was about ~40 and ~60
+percent for respective participants in grasping. One had a 95% touch
+rate (insane). Grabbed a bottle of coffee in 2D.
+
+** Ethier 2012
+\cite{Ethier2012} - (Miller Group) *Monkeys* were implanted in hand
+area of M1 and implanted with IM electrodes in the forearm. The neural
+data was correlated to EMG activity. Monkeys were then injected with
+peripheral nerve block. Monkeys then completed trials were they had to
+produce a desired level of grasp force as indicated to the monkey by
+visual feedback from the force sensor. There were trials with
+different levels of required force. Argue for many neurons for control
+of each desired output variable.
+
+** Collinger 2013
+\cite{Collinger2013} - (Schwartz Group) *Human* was implanted in M1
+with two 96 electrode arrays to be able to control a 7D arm (3D
+translation + 3D orientation + 1D grasping). Used the linear
+population vector decoder. For training, the limb moved to different
+spaces with automated visual commands saying what was happening the
+the subject watched. Next, the participant was able to move the arm
+with assistance (the arm would only move correctly toward or away from
+the target with nothing in between). The subject then gradually had
+assistance backed off. After day 66, there was no impedence. Then did
+several tasks on the ARAT test. Learning was observed. Clinically
+improved ARAT score.
+
+** Ifft 2013
+\cite{Ifft2013} - (Nicolelis Group) *Monkeys* performed bimanual
+control of *two 2D avatar arms*. The monkeys were implanted with a lot
+of electrodes in M1, parietal, premotor and S1 (Monkey 2 just had M1
+and S1) . They saw two 2D avatar
+arms and had to move each to a goal location. There were three modes:
+joystick, brain + arm movements and brain - arm movements. Monkey 1
+went through this paradigm, but monkey 2 did not use a joystick but
+just watched the arms do a pre-programmed routine. More neurons were
+needed for the same accuracy with two arms compared to one. The same
+neuron populations contributed to the movement of each arm.
+
+#+BIBLIOGRAPHY: library plain option:--no-keywords option:--no-abstract limit:t

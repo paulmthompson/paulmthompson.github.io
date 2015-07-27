@@ -1,0 +1,28 @@
+
+#+TITLE: Reference Frames
+
+* Overview
+
+* Themes and Concepts
+
+relative to a different zeros (eye vs body part)
+
+an object may be represented in multiple reference frames in different
+areas
+
+different areas have different reference frames
+
+intrinsic (joint angles and muscle activations to get there) vs
+extrinsic (position in space). 
+
+* Regions
+
+** Parietal
+
+** Premotor
+
+* Reviews
+
+
+
+#+BIBLIOGRAPHY: library plain option:--no-keywords option:--no-abstract limit:t

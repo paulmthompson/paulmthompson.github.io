@@ -1,0 +1,49 @@
+
+#+TITLE: Proprioception
+
+* Overview
+
+* Themes and Concepts
+
+* Encoding
+
+** Spinal
+
+Muscle spindle receptors appear to have  population vector coding. Therefore it appears that the cortex does not have access necessarily to muscle length or joint angle, but dynamic displacement of limb endpoint.
+
+*** TODO Prochazka 1998
+\cite{Prochazka1998} -
+
+*** TODO Stein 2004
+\cite{Stein2004} -
+
+*** TODO Roll 2009
+\cite{Roll2009} - 
+
+*** TODO Thyrion 2010
+\cite{Thyrion2010}
+
+** Cortical
+
+*** TODO Prud'homme 1994
+\cite{Prudhomme1994} - monkeys were recorded from S1 neurons receiving proprioceptive
+inputs during 2D reaching tasks. Some tasks compared active vs
+passive, and some incorporated loads. Neurons were selected that
+responded to movement of joints or deep tissues, mostly from areas 1
+and 2. Cells showed directional tuning. Cells had different firing
+during active and passive tasks.
+
+*** TODO Cohen 1994
+\cite{Cohen1994} -
+
+*** TODO Tillery 1996
+\cite{Tillery1996} - 
+
+* Reviews
+
+\cite{Bosco2001} - Dorsal spinocerebellar perspective
+
+\cite{Proske2012} - Proprioception
+
+#+BIBLIOGRAPHY: library plain option:--no-keywords option:--no-abstract limit:t
+

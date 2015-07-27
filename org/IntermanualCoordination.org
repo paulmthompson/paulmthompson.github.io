@@ -1,0 +1,31 @@
+
+#+TITLE: Intermanual Coordination
+
+* Overview
+
+* Themes and Concepts
+
+** Directional Interference
+
+*** Relative Phase
+
+*** Egocentric Constraint
+
+*** Allocentric Constraint
+
+*** Quantification
+
+
+
+* Reviews
+
+\cite{Swinnen2002} - Good Nature Reviews Neuroscience article. He has
+several other reviews, but this is the one where he focuses the most
+on single unit recordings (he is an EEG guy). 
+
+\cite{Swinnen2004} -
+
+\cite{Rueda-Delgado2014} - Mostly EEG review. Some concepts but little
+proof of anything.
+
+#+BIBLIOGRAPHY: library plain option:--no-keywords option:--no-abstract limit:t

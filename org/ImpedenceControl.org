@@ -1,0 +1,12 @@
+
+Impedence Control
+
+* What is impedence?
+
+Biomechanical resitance to movement is made up of three components: stiffness, dampening and inertia. Stiffness and dampening is usually the only thing that is modulated by the nervous system. 
+
+* Reviews
+
+\cite{Franklin2011} Considers the concepts of Bayesian Decision Theory, Optimal Feedback Control, Forward Models, Impendence control and motor learning
+
+#+BIBLIOGRAPHY:  ../library.bib  plain option:--no-keywords option:--no-abstract limit:t

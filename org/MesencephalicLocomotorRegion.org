@@ -1,0 +1,14 @@
+
+#+TITLE: Mesencephalic Locomotor Region
+
+* Definition
+
+The MLR is a collection of neurons that are thought to initiate locomotion.
+
+* Overview
+
+
+
+* Reviews
+
+\cite{Jordan1998}

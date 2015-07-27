@@ -1,0 +1,62 @@
+
+#+TITLE: Tuning Curve
+
+* Definition
+
+A tuning curve refers to a plot of a cell's response vs some varying parameter, usually direction. This concept is referred to as the cell's *prefered direction*.
+
+* Overview, Concepts and Themes
+
+* Motor Control
+
+** Discovery
+
+In motor systems, tuning curves were first discussed in the 1980s in reference to the direction of movement. Single cell impulses were found to vary with movement direction in a cosine fashion \cite{Georgopoulos1982}. This led to the [[../PopulationVector.html][population vector]] hypothesis which stated that the overall movement direction was related to the vector sum of all of the tuning curves.
+
+These results were taken by the same group and expanded into 3D \cite{Georgopoulos1986} \cite{Schwartz1988}. The tuning directions were found to be distributed over all directions uniformly.
+
+** Intrinsic Modulation of Tuning Curves
+
+*** Experiments
+
+\cite{Scott1995}
+
+\cite{Scott1997} - Performed a reaching task with similar paths but different arm postures for the task. Nearly *all* of the cells changed as a result of the difference in posture.
+
+\cite{Scott1997a} - Same task as above but with premotor and parietal recordings
+
+\cite{Kakei1999}
+
+\cite{Kakei2001}
+
+\cite{Kakei2003}
+
+\cite{Aflalo2006} - Measuring tuning curves over many movements. Best fit model was neurons that encoded endpoint posture (so preferred direction and posture). Lots of variance was not accounted for in these experiments.
+
+*** Concepts
+
+Many neurons appear to be *locally tuned* but not globally tuned for the direction of motor output \cite{Kalaska2009}. A change in posture was shown to affect the prefered direction, amplitude or both of tuning curves in M1 \cite{Scott1997} and the premotor areas \cite{1997Scotta}. There are neurons that are also unaffected by arm posture. Could be due to neurons encoding other variables like speed which also change when posture is changed.
+
+Some studies with a wrist task  have shown less intrinsic modulation than above \cite{Kakei1999}, \cite{Kakei2001}, \cite{Kakei2003}. These studies make distinctions between *extrinsic* cells, *extrinsic with gain modulation* cells,  and *muscle* motor cells and state that all  are present in the cortex. They also make a distinction between the tuning of cells in M1 and premotor areas: there was a greater proportion of instrinsic cells compared to extrinsic cells in the premotor area in contrast to M1.
+
+** Organization
+
+There is some evidence preferred direction columns are organized together perpendicular to the cortical surface in a repeating fashion \cite{Georgopoulos2007}, \cite{Amirikian2003}.
+
+* Vision
+
+* Critical Experiments
+
+\cite{Georgopoulos1982} Cosine tuning curve; Preferred Direction
+
+Georgopoulos 1983 Population vector concept
+
+\cite{Schwartz1988} First of a three part experiment that generalizes the tuning curve concept to 3D
+  
+* Reviews
+
+\cite{Schwartz2007}
+
+\cite{Kalaska2009} Excellent book chapter on motor cortex neural code and includes a section on tuning properties
+
+#+BIBLIOGRAPHY: library plain option:--no-keywords option:--no-abstract limit:t

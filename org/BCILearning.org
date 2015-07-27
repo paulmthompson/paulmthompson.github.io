@@ -1,0 +1,22 @@
+
+#+TITLE: BCI Learning
+
+* Directional Tuning
+** Uncorrelated shifts
+
+** rotations across populations
+
+** convergence of activation patterns
+
+* Sensory vs Motor adaptation
+
+* Brain Body Uncoupling
+\cite{Hatsopoulos2009}
+
+* Reviews
+
+\cite{Green2011}
+
+\cite{Hatsopoulos2009}
+
+#+BIBLIOGRAPHY: library  plain option:--no-keywords option:--no-abstract limit:t

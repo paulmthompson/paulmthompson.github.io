@@ -1,0 +1,73 @@
+
+#+TITLE: Decision Making Models
+
+* Overview
+
+Perceptual decision making [TOPIC] is a really big topic that spans
+many cortical areas as well as different experimental paradigms for
+each. 
+
+* Themes and Concepts
+
+** Model Type
+
+There are many different models about how perceptual decisions are
+made, and there are many papers describing different models as well as
+fitting data to different models. 
+
+** Planning vs Decision Making
+If the choice of the decision in question involves moving in a
+particular way, there has traditionally been a separation between
+decision making and movement planning, such that one sequentially
+follows the other. More recently, these have been thought to occur in
+parallel in a distributed way, such that the possible decision
+outcomes are already being planned up until the decision is made.
+
+* Models
+
+** Traditional Accumulator
+*** Perfect Integrator
+*** Bounded Accumulator
+*** Leady Accumulator
+** Urgency
+
+
+* Experimental Evidence
+
+** Unorganized
+*** TODO Hanes 1996
+\cite{Hanes1996} - 
+
+*** TODO Zandbelt 2014
+*** TODO Thura 2014						     :PMd:M1:
+** Visual evidence decisions
+*** Reddi 2000			  :ReactionTime:SpeedAccuracy:Saccade:Humans:
+*** Roitman 2002			:LIP:RDM:ReactionTime:Saccade:Monkey:
+*** Cook 2002a			     :VIP:MT:RDM:ReactionTime:Saccade:Monkey:
+*** Reddi 2003		       :ReactionTime:SpeedAccuracy:RDM:Saccade:Human:
+*** Huk 2005				:LIP:RDM:ReactionTime:Saccade:Monkey:
+*** Hanks 2006
+*** Yang 2007						 :LIP:Saccade:Monkey:
+*** Churchland 2008 			:LIP:RDM:ReactionTime:Saccade:Monkey:
+*** Kiani 2008 				:LIP:RDM:ReactionTime:Saccade:Monkey:
+*** Resulaj 2009						  :Human:RDM:
+*** Stanford 2010	   :FEF:CompelledReponse:ReactionTime:Saccade:Monkey:
+** Reaching
+*** TODO Crammond 2000
+* Reviews
+
+** TODO Gold 2001
+** Schall 2001
+\cite{Schall2001}
+** TODO Platt 2002
+** TODO Glimcher 2003
+** Smith 2004
+\cite{Smith2004}
+
+** Gold 2007
+\cite{Gold2007}
+** Cisek 2007
+** Bogacz 2010
+** Cisek 2010
+** TODO Thura 2012
+** TODO Wolpert 2012

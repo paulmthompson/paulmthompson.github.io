@@ -1,0 +1,253 @@
+
+#+TITLE: BCI Sensory Feedback
+
+* Definition
+
+* Overview
+
+* Themes and Concepts
+
+** Proprioception and Tactle Processing are not independent
+
+Stimuli from the outside world are encoded using *receptors* that are *specific* for a particular stimulus. The senses of *touch* and *proprioception* are initially acquired with different receptors in different locations. However, as sensory information moves from the receptor to the cortex, various types of processing take place at different locations. *S1* is arranged in a way that certain areas correspond to different functions. *3a* represents more proprioception, and *3b* is more invovled with touch. 
+
+Do proprioceptive and tactile processing interact?
+
+Yes.
+
+ Is there a difference in able bodied and injured?
+
+ Do proprioceptive and tactile *stimulation* interact?
+
+ Is there a benefit of one vs another vs both?
+
+ Is there a difference in able bodied and injured?
+
+ Would learning affect any of the above?
+
+Does it make a difference if the BCI is trained using sensory feedback?
+
+In order to evoke a "stronger" sensation should the ampitude or frequency of the stimulation be varied? Or both? Is it different between tactile and proprioception? Is is it different depending on what neurons are stimulated in the cortex, and how many synapses they are away from the receptor?
+
+How much does the implantation site matter? Can you stimulate proprioception from anywhere? Can you stimulate tactile from anywhere?
+
+Does the Fiber Type (RA vs SA) matter when you are stimulating? How do you know what fiber type you are stimulating? If there is a difference, will it hold over time?
+
+If you begin to stimulate, what parameters do you use? What is the appropriate amplitude, pulse width, number of pulses and frequency?
+
+ Do you stimulate at one electrode or at many electrodes? How does the stimulation at one electrode affect what is sensed by another electrode?
+
+How does learning and plasticity affect the whole situation?
+
+* Experimental Evidence
+
+** Romo 1998						       :Monkeys:ICMS:
+\cite{Romo1998} - monkeys were trained to discriminate two mechanical
+vibrations. Area 3b was recorded and they found the receptive fields
+corresponding to the stimuli. They then began to replace the 2nd
+mechanical stimuli with ICMS. They found that monkeys were able to
+perform the same in the task if currents were high enough. They found
+that at low currents, monkeys did not react to the second stimulus,
+and at a moderate current, monkeys performed the task but only with
+chance correctness. Found that monkeys could detect the mean frequency
+of aperiodic signals. Also they found that suprathreshold amplitude
+did not affect the results.
+
+** Romo 2000					     :Monkeys:ICMS:FiberType:
+\cite{Romo2000} - Monkeys were trained to distinguish between
+mechanical stimuli of different intensities. Then these trials were
+interspersed with trials were the first or both mechanical stimuli
+were replaced with electrical stimuli. They found that over 1000
+trials, the monkeys were 92% correct on mechanical and 91% correct on
+electrical stim trials. They then tried to determine the smallest
+frequency difference that could be detected. There was no significance
+between mechanical and electrical and both were around ~4 hertz. They
+performed the same trial but by stimulating *slowly adapting fibers*
+rather than *quickly adapting fibers*, and monkeys could detect the
+stimulus but could not correctly distinguish one frequency from
+another. Then they performed a trial were microelectrodes were in the
+same QA receptive field and trials with two mechanical or two electrical
+stimuli were applied. They found a small, but significant different in
+performance as well as detection thresholds (but overall performance
+was still very good).
+
+** Fitzsimmons 2007					       :Monkeys:ICMS:
+\cite{Fitzsimmons2007} - (Nicolelis Group) Monkeys that were
+previously trained make the correct choice of a box with food (of two
+possible choices) based on vibration of the shoulder, we able to learn
+to do the same with different patterns of ICMS in S1 (not sure what
+subregion). The switch from vibration to ICMS cues resulted in a large
+drop in performance, but it later steadily improved.
+
+** Butovas 2007						:StimParam:Rats:ICMS:
+\cite{Butovas2007} - Rats were  implanted with electrode arrays in the sensory cortex and trained to respond to electrical stimuli. The stimulation parameters (intensity, number of pulses, frequency) were varied so that the optimal parameters to elicit a consistent response from the rats was determined. They found that *2nC per pulse* was the magic number to elicit a percept. They found that increasing the number of pulses caused the threshold amplitude of stimulation to decrease, but at the expense of increasing charge transfer. They consider the concept of *perceptual efficacy*, which they consider to be either 1) reduction of threshold per additional pulse or 2) reduction of threshold per total charge transfer. They found the optimal solution to be in the form of *doublets*.
+
+** London 2008				 :Monkeys:Proprioception:ICMS:Area3a:
+\cite{London2008} - (Miller Group) Stimulated 3a (proprioceptive region) to cue a 2D
+planar manipulandum reach task. Monkeys were first trained without the
+cue to reach toward a visual target either on the right or the left. It was then paired with ICMS, and
+the visual target was eventually taken away. Monkeys could hit the
+appropriate target with only ICMS more than chance, but less than with
+the visual target for guidance. Performance decreased with decreasing
+light intensity.
+** Huber 2008							       :Rats:
+\cite{Huber2008} - Used optogenetics to see how many neuron activations
+were necessary to be percepted by mice to drive behavior. Presence of
+a stimulus was associated with a reward out of one and only one of two
+ports (left). The abscence of the stimulus was associated with reward
+from the other port (right). After training sessions, the mice could
+chose correctly 93% of the time, but were only at 50% without the stimulation.
+
+** Houweling 2008						  :Rats:ICMS:
+\cite{Houweling2008} - Rats were trained to respond to low threshold
+stimuli in the somatosensory cortex. Once they were adequately
+trained, they began to stimulate *individual neurons*, interspersed
+with microstimulation trials and trials with no stimulation (catch
+trials). They found that animals responded more often in individual
+neuron stimulation compared to no stimulation. They then performed
+similar experiments where the catch trial had subthreshold stimulation
+rather than no stimulation and found that individual neurons still
+responded more frequently. The reaction times for individual neuron
+trials appear to be longer for every type of trial.
+
+** O'Doherty 2009					       :Monkeys:ICMS:
+\cite{ODoherty2009} - (Nicolelis) Monkeys were instructed to perform a 2D BMI
+cursor task via ICMS stimulation. One monkey got ICMS stim to S1 (area
+1) and another got stim to parietal. Stimulation of parietal did *not*
+work. As the previous study, a large drop in performance occured after
+switch from vibration to ICMS, but later returned to 90%
+accuracy. Using the BMI can cause problems because stimulation can
+cause an artifact, but they say it was easy enough to be discriminated.
+
+** Suminksi 2009				     :Monkeys:Proprioception:
+\cite{Suminski2009} - (Hatsopoulos) Monkeys placed their arms in a 2D exoskeleton arm that controled the position of a cursor on screen. The monkeys could not see their arms. They performed 4 tasks. 1) During the *Active Task* the monkeys had to move the cursor on the screen to a virtual target by moving their arm in the exoskeleton. 2) During the *Visual playback* condition, the monkeys watched a visual record of their performance while keeping their arm still. 3) During the *Proprioceptive playback*, monkeys did not see anything on the screen, but the exo moved their arm through the path it took. 4) During the *Visual + Proprioceptive playback* the the cursor played through on the screen while their arm was moved in the the exo.
+
+They recorded from the motor cortex during each of the above trials and compared activity among them. They found that only 3.6% of cells fired only durin the active trial. They classified cells according to their preference for a particular type of trial, such as *Prefers Vision*, *Prefers Proprioception*, and *multisensory*. The analysis is fairly extensive and complicated. They found no difference in mutual information between the V+P trial and the P trial, and both were above the information about hand state than visual alone. 
+** Suminski 2010				     :Monkeys:Proprioception:
+\cite{Suminski2010} - (Hatsopoulos) A monkey placed its arm in a 2D
+exoskeleton arm which it could not see. The monkey saw a screen that
+performed a 2d random target pursuit task that was decoded by the
+monkey watching the cursor move to different targets without moving
+(as in a paralyzed patient). Then 3 trial conditions were carried
+out. In condition 1, the monkey had to keep his hand still in the exo
+and perform the random target pursuit task (visual feedback only). In the 2nd condition, the
+exoskeleton moved the monkeys hand along the path that corresponded to
+the visual target and the monkey performed the task (congruent visual
+and proprioceptive feedback). In the 3rd
+condition, the exoskeleton moved the arm on a random path that was not
+associated with the visual target (incongruent visual and
+proprioceptive feedback. The monkeys were able to get acquire the
+target the same in the different conditions, but other metrics of
+error like time to target and path distance were minimized when
+feedback was congruent.
+
+** Fridman 2010					       :Rats:ICMS:StimParams:
+\cite{Fridman2010} - Modeled perfomance on a two-alternative forced
+choice discrimination test with ICMS in S1 as the stimulus and tested
+it in animals. Model used was a "leaky integrator." They found that a high amplitude, low frequency
+stimulus was interepted the same as a low amplitude, high frequency stimulus.
+
+** O'Doherty 2011					       :Monkeys:ICMS:
+\cite{ODoherty2011} - (Nicolelis) *Monkeys* performed a *2D
+avatar* task where they had to select the right object as indicated by
+ICMS feedback. They trained with a joystick and hovered over one of
+several objects which indicated a reward via microwire ICMS of a
+particular frequency. Had to multiplex neuron records (to account for
+ICMS) with clock. 
+
+** Venkatraman 2011						  :Rats:ICMS:
+\cite{Venkatraman2011} - (Carmena) Rats were implanted in the sensory
+cortex and at the same time a foam marker was placed on one of their
+whiskers, which could be tracked in position with a "custom whisker
+tracking system." An invisible target was set at the beginning of each
+trial (which was known to the tracking system) and every time a rats
+whisker passed over the target, it received ICMS. Once the rat
+received ICMS 6 times, it got a reward by "licking the lickometer" (no
+joke). They found that once the rats hit the target location, they
+whisking would oscillate with decreasing amplitude around the target
+location. They found that animals spent less time around the wrong
+target. In this way, they conclude that microstimulation directed
+*motor plans*.
+
+Methods paper \cite{Venkatraman2009}
+
+** Rincon-Gonzalez 2011			:Monkeys:Proprioception:Area3b:Area1:
+\cite{RiconGonzalez2011} Monkeys were trained to grab and object with their left hand. The object was hidden from view, as well as the monkey's hand. The position of the object and hand were shown to the monkey as virtual images on a computer screen. In *physical trials* the animal would reach out and grab the object. In *virtual trials* there would be no actual object, but the monkey would see a virtual object depicted on the screen and attempt to grab it. Monkeys were implanted in *areas 3b and 1* with electrode errors. Neurons were classified as *contact driven* or *movement driven* as well as *simple response* or *mixed response*. >50% were found to be mixed, therefore, found quite a lot of movement driven neurons, which they correspond to the proprioceptive portion of the task.
+** Weber 2011						 :Monkeys:ICMS:Area2:
+\cite{Weber2011} - Monkeys were trained to perform a 2D manipulandum task. They recorded from *area 2* while this task was performed. They also performed a task where a monkey would move the hand to target 1, receive a force in the handle and then move to target 2. They substituted the force cue with an ICMS cue. They found that: 1. neurons that had tuning curves within 20 degrees of each other were twice as likely to be near the same electrode; 2. Some neurons were correlated with upcoming limb movements; 3. they did not find a difference in neuron type (proprioceptive vs tactile) in neuron dropping analysis, suggesting that both neurons are important for limb kinematics.
+** TODO London 2011 			       :Monkeys:Proprioception:Area2:
+\cite{London2011} - 
+** Semprini 2012				       :Rats:ICMS:StimParams:
+\cite{Semprini2012} - Rats were trained to press a lever to receive a
+reward after ICMS to S1. After they were at a rate of 75% correct, the
+amplitude, frequency and duration of stimulus were varied to see if it
+could still signal the rats to press the lever. They generated
+fraction correct vs stimulus variable curves for amplitude, frequency
+and duration.
+
+** Tabot 2013					  :Monkeys:Area3b:Area1:ICMS:
+\cite{Tabot2013} - (Bensmaia) Determined whether they could use ICMS
+of S1 (areas 3B and 1) to signal contact, location, pressure and
+timing. Animals were given to stimuli and had to choice between them,
+making the decision with saccades. 
+
+*Contact*
+In the first trials, animals were indented
+in two skin locations and had to signal whether the second was medial
+or lateral to the first. Once performance was stable, ICMS (instead of
+the second physical stimulus) was delivered
+to an area that was somatopically mapped to different
+location, and the animal again had to choose. Animals were still 80%
+successful and area 1 was not different than area 3b. 
+
+*Location*
+Then they performed a two choice task where mechnical stimuli was present in one
+of two trials and the monkey had to signal which. The stimulus was
+then substituted with ICMS of different amplitudes. Then the monkeys
+received two different mechanical stimuli and had to select which was
+stronger. This was then replaced by two ICMS amplitudes and they had
+to signal which was stronger. Experiments were also done where the
+magnitude of ICMS pulse was generated by squeezing a sensor on a
+prosthetic finger, and where monkeys compared mechanical stimuli to
+ICMS pulses.
+
+*Timing*
+In the final series of experiments, they considered the amplitude and
+duration necessary to be a detection function and found duration
+>100ms to be equivalent.
+
+** TODO Thomson 2013
+\cite{Thomson2013} - (Nicolelis) 
+
+** TODO Shokur 2013
+\cite{Shokur2013} - (Nicolelis)
+
+** Zaaimi 2013				      :Monkeys:ICMS:StimParams:Area2:
+\cite{Zaaimi2013} - (Miller) Monkeys were implanted in *area 2* with
+arrays. 2D manipulandum controled cursor. Force could be delivered to
+the device. One monkey learned to move to a single target if it sensed
+force. Another monkey was trained to chose one of two targets if it
+felt the force (lab felt that this second task had a better
+control). The force stimulus was replaced with ICMS. They then
+experimented with different amplitudes of ICMS and then different
+amplitudes at multiple electrodes vs one electrode in the array. The
+investigators believed that large areas of sensory response is more
+physiological. Found that the ability to stimuli increased as more
+electrodes were used, and this was also true when electrodes used what
+would be subthreshold currrents for a single electrode.
+
+performed some interesting calculations where they state that the low
+threshold stimuli were able to activate neurons within a radius that
+has been shown to contain neurons with stimilar tuning curves,
+implying a greater specificity.
+
+
+* Reviews
+
+\cite{Hsiao2011} - I think this is a conference review that has some experimental data at the end. Review of sensory feedback for upper limb considering both peripheral and central interfaces. Has detailed discussion on the different afferent types. Begins conversation by considering Luke Sykwalker's robotic hand. Okay in my book.
+
+\cite{Weber2012} - Review of sensory restoration that considers both peripheral and central interfaces. Pretty comprehensive. 
+
+\cite{Bensmaia2014} - Review of BCI with a decent focus on afferent feedback and closed loop control (gives considerably more detail on these topics than other general BCI reviews so far).
+
+#+BIBLIOGRAPHY: library plain option:--no-keywords option:--no-abstract limit:t

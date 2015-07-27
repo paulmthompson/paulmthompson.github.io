@@ -1,0 +1,28 @@
+
+#+TITLE: Kinematics
+
+* Defintion
+
+Kinematics describe the motion of a body, but does not consider the causes of that motion. In neuroscience, kinematics is used in reference to 1) action action of different parts of the body and their position in space and 2) how the brain is encoding those positions and velocities. Compare to [[../Kinetics.html][kinetics]] which examines the causes of motion (forces and torques).
+
+* Overview
+
+Gathered support after the concept of a [[../PopulationVector.html][population vector]] was brought forward.
+
+* Themes and Concepts
+
+* Experimental Support
+
+** Direction
+
+** Target location
+
+** Distance
+
+** Speed
+
+** Velocity
+
+* Reviews
+
+

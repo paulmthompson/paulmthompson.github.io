@@ -1,0 +1,15 @@
+
+#+TITLE: Local Field Potentials
+
+* Definition
+
+* Overview
+
+* Experimental Evidence
+
+\cite{Mehring2003}
+\cite{Rickert2005}
+\cite{Pesaran2002}
+\cite{Scherberger2005}
+
+#+BIBLIOGRAPHY: library plain option:--no-keywords option:--no-abstract limit:t

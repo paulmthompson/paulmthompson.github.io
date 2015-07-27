@@ -1,0 +1,42 @@
+
+#+TITLE: Somatosensory Coding
+
+* Definition
+
+* Overview
+
+Sensory signals are derived from specialized *sensory end organs* that are attached to primary afferents.
+
+Primary afferents exhibit tuning for some somatosensations, but not others.
+
+Primary afferents enter SI, but in different subregions.
+
+Serial and parallel processing occur in many of these subregions.
+
+As information reaches more synapses away, they 
+
+* Tactile
+** Timing
+
+** Location
+
+** Pressure
+
+** Shape
+
+** Texture
+
+** Experiments
+
+*** Pei 2010		      :Direction:Pattern:Intensity:Speed:Orientation:
+\cite{Pei2010} - neurons were directionally tuned to motion in S1, but there was no tuning seen in the peripheral afferents feeding these areas. They test three different types of patterns: bars, dots and random dots. For bars, the directional tuning strength was 1=2>3b. For dots, they found 1>3b=2. For random dots, 1>3b=2, where 2 was especially weak for dots. Area 1 was the most sensitive to motion coherence. They found the liklihood for a neuron to be tuned to all three stimulus types increased from 3b (no neurons) to area 2 (8%) to area 1 (30%). 
+
+They found that some neurons in area 1 are tuned to both stimulus direction as well as orientation, and these preferences tended to be orthogonal. They propose that the strong direction selectivity in area 1 arises due to the strong in-field inhibition in 3b which then feeds area 1.
+
+* Reviews
+
+\cite{Johansson2009} 
+
+
+
+#+BIBLIOGRAPHY: library plain option:--no-keywords option:--no-abstract limit:t

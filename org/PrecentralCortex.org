@@ -1,0 +1,82 @@
+
+#+TITLE: Precentral Cortex
+
+* Historical areas
+
+Initially, two *agranular* areas of the caudal frontal lobe were described: *area 4* and *area 6*. 4 + most of 6 made the Primary Motor Cortex (M1) and the rest of 6 was called the Supplementary Motor area (SMA) \cite{Luppino2000}. 
+
+There are have been additional classifications based on anatomy and function \cite{Matelli}, \cite{Matelli1991}. These are described below. Area 4 became M1, and area 6 was divided into mesial, dorsal and ventral, which were then further subdivided rostrally and caudally.
+
+* Subdivisons
+
+** F1 - Primary motor cortex (M1)
+
+Projects to SMA, PMd, PMv
+Recieves SMA, PMd, PMv, S1, rostral parietal
+
+There appears to be anatomic and functional differences in M1 itself
+
+Caudally, there are stronger connections with the basal ganglia and weaker connections with the cerebellum. Most [[../Corticomotorneurons.html][corticomotorneurons]] are concentrated here \cite{Rathelot2009}, \cite{Rathelot2006}. Studies that record from the bank of the central sulcus in this area appear to show the strongest correlations with movement [[../Kinetics.html][kinetics]].
+
+Rostrally, there are stronger cerebellar connections and weaker basal ganglia connections.
+
+Corticospinal fibers from F1 mostly synapse in Lamina VI, VII, VIII and IX (direct motor neuron connections).
+
+** F2 - Dorsal premotor cortex (PMd)
+
+Projects to caudal, medial and lateral parietal, M1, SMA, PMv
+Recieves caudal, medial and lateral parietal, M1, SMA, PMv
+
+Corticospinal fibers mostly terminate in intermediate lamina
+
+** F3 - Supplementary motor area proper (SMA)
+
+Projects to M1, PMd, PMv
+Recieves M1, PMd, PMv
+
+Corticospinal fibers mostly terminate in intermediate lamina
+
+** F4 and F5 - Ventral Premotor area (PMv)
+
+Projects to caudal, medial and lateral parietal, M1, SMA, PMd
+Recieves caudal, medial and lateral parietal, M1, SMA, PMd
+
+Corticospinal fibers mostly terminate in intermediate lamina
+
+** F6 - Pre-supplementary motor area (pre-SMA)
+
+weakly connected to parietal
+connections with prefrontal
+
+No descending spinal cord connections. Exerts influence through the brainstem.
+
+** F7 - Predorsal premotor cortex (pre-PMd)
+
+weakly connected to parietal
+connections with prefrontal
+
+No descending spinal cord connections. Exerts influence through the brainstem.
+
+** Rostral cingulate cortex
+
+* Structure and Function Implications
+
+** Corticospinal
+
+F1 is the division with the most direct motor neuron connections, while F2, F3, F4 and F5 mostly project either to F1 or to intermediate lamina. This could mean that the former determine global movement thorugh spinal circuits and F1 exerts direct, fine control of movement \cite{Luppino2000}.
+
+** F6 and F7
+
+F6 and F7 do not have corticospinal projects, and have only weak connections with the parietal lobe. They do however have strong connections with the prefrontal and cingulate areas. Their function may be mostly concerned with " motivation, long term plans and memory of past actions" \cite{Luppino2000}. 
+
+* Critical Experiments
+
+\cite{Rathelot2009} Viral tracing shows that CMNs are almost exclusively located in caudal M1 and not rostral M1. The authors conclude that caudal M1 is evolutionary newer and was developed for finer movements. Authors refer to their previous work which has made distinctions between [[../TuningCurve.html][ *muscle-like* and *extrinsic-like* motor neurons]], which they say could be analogous.
+
+* Reviews
+
+\cite{Luppino2000} Emphasizes the differences between each of the seven areas, particularly F1 and the rest
+
+\cite{Dum2002} Mostly emphasizes the parallel descending pathways from each region and similarities between them
+
+#+BIBLIOGRAPHY: library plain option:--no-keywords option:--no-abstract limit:t

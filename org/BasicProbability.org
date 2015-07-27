@@ -1,0 +1,160 @@
+
+#+TITLE: Basic Probability
+
+* Definition
+
+Two camps: 
+
+*frequentists* believe probability is the ratio of outcome/possible
+ outcomes after infinite trials
+
+*bayesians* believe that probablity is a measure of belief of an
+ outcome
+
+* Overview
+* Vocabulary
+
+** Probability Density and Distribution
+
+density = continuous \\
+distribution = discrete \\
+P(x) = probability of variable X taking value x \\
+P(X) = probabilty density (or distribution) function
+
+** Expectation
+
+This is the *expected value* average many repetitions. This depends on
+the 1) probability of one possible result and 2) the value of that
+result. So the expectation of a die roll is 3.5 because all events are
+equally likely and the larger numbers represent a larger proportion of
+summated outcomes.
+
+So the Expectation of X given a probability distribution P(X) would be
+
+\begin{equation}
+E[X] = \sum_{i=1}^{N} X P(X)
+\end{equation}
+
+This is equivalent to the concept of a *mean* or center of the distribution.
+
+** Moment
+
+A moment gives information about a shape of a group of points. The nth
+moment about point c is given by the equation:
+
+\begin{equation}
+u_n = \int{(x - c)^2 f(x) dx}
+\end{equation}
+
+When the concept of a moment is applied to a probility density
+function the *zeroth moment* is the sum of all probabilities (1), and the *first moment* is the *mean*.
+
+After the first moment, the *central moment* where c = mean, is used to get
+distribution of data around the mean.
+
+** Variance
+
+*** Definition
+
+The variance is equal to the second central moment about the
+mean. Average of the square of each value from the mean.
+
+The standard deviation is the square root of the variance. This value
+is more difficult to mathematically manipulate, but has the same units
+as the mean.
+
+*** Derivation
+
+\begin{align}
+u_2 &= \int{(x-c)^n f(x) dx} \\
+&= \int{(x-u)^n f(x) dx} \\
+&= \int{(x^2 - 2ux + u^2) f(x) dx} \\
+&= \int{(x^2 f(x) dx} - \int{2u x f(x) dx} + \int{u^2 f(x) dx} \\
+&= E[x^2] - 2u \int{x f(x) dx} + u^2 \int{f(x) dx} \\
+&= E[x^2] - 2u (u) + u^2 (1) \\
+&= E[x^2] - 2u^2 + u^2 \\
+&= E[x^2] - u^2 \\
+\sigma^2 &= E[x^2] - E[x]^2 = E[(x-E[x])^2]
+\end{align}
+
+** Covariance
+
+*** Definition
+
+\begin{equation}
+\sigma(x,y) = E[(x-E[x])(y-E[x])]
+\end{equation}
+
+How much variables change together.
+
+Independent variables have a covariance = 0 (E[xy] will equal
+E[x]E[y]).
+
+A covariance of 0 does not imply independence because it can only
+speak to *linear* dependence.
+
+*** Derivation
+
+\begin{align}
+\sigma(x,y) &= E[(x-E[x])(y-E[y])] \\
+&= E[xy - xE[y] - yE[x] + E[x]E[y]] \\
+&= E[xy] - E[xE[y]] - E[yE[x]] + E[E[x]E[y]] \\
+&= E[xy] - E[x]E[y] - E[x]E[y] + E[x]E[y] \\
+&= E[xy] - E[x]E[y]
+\end{align}
+
+** Correlation
+
+\begin{equation}
+\rho(x,y) = E[(x-E[x])(y-E[y])] / (\sigma(x)\sigma(y)) = cov(x,y) /  (\sigma(x)\sigma(y))
+\end{equation}
+
+Dimensionless and therefore doesn't change as a result of units used
+to calculate it.
+
+
+
+
+
+
+
+
+** Joint and Conditional Probability
+
+*** Joint Probabilty
+
+P(x,y) is the probability that x and y both occur
+
+*** Conditional Probability
+
+P(x|y) is the probability that x occurs when y occurs \\
+P(y|x) is the probability that y occurs when x occurs \\
+
+*** Relationships
+
+\begin{equation}
+P(x,y) = P(x|y)P(y) = P(y|x)P(x)
+\end{equation}
+
+The probability of x and y occuring is the same of the probability
+that y occurs multiplied by the probability that x occurs when y
+occurs.
+
+If they are independent of one another:
+
+\begin{equation}
+P(x|y) = P(x) , P(y|x) = P(y)
+\end{equation}
+
+Therefore P(x,y) = P(x)P(y) if x and y are independent.
+
+** Noise
+
+N(0,Q) -> represents noise that is zero mean normal distribution
+(first value) and that has a variance N.
+
+* Discrete Version of terms
+
+With enough samples, we don't want to have to do all of those integral
+and can instead perform these approximations of sums
+

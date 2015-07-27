@@ -1,0 +1,53 @@
+
+#+TITLE: Optimal Feedback Control
+
+* Components of an  Optimal Feedback Control System
+
+** Controller
+
+A *Controller* compares a *cost function* (goal + penalties) with the current *state* estimate of system. \cite{Todorov2002}
+
+** State Estimate
+
+The *state* of the system is estimated by integrating a [[../FeedforwardControl.html][motor prediction]] along with *sensory input*. What exactly the state represents (joint based vs higher level) is a matter of debate, and it is possible that multiple states exist that are related. A [[../KalmanFilter.html][Kalman Filter]] is an engineering application which can also create state estimates from prediction and [[../FeedbackControl.html][feedback]] This concept serves as a useful model of motor control.
+
+** Motor Prediction
+
+The *motor prediction* is generated when an *efference copy* input (copy of motor commands) is sent to a *forward model* which simulates the anticipated action to generate an estimate of the future sensory input. 
+
+** Sensory Input
+
+The true *sensory input* considers current sensory information in the context of prior sensory information (see [[../BayesianDecisionTheory.html][Bayesian Decision Theory]]) The sensory input is both [[../Noise.html][noisy]] and delayed.
+
+* Results of OFC
+
+** Minimum Intervention Principle
+
+In OFC, gains are adjusted to minimize/maximize some index of performance, but are not if they do not affect motor performance (*minimum intervention principle*).
+
+** No Trajectory Encoding
+
+The model of OFC suggests that trajectory during movements is NOT explicitly encoded by the cortex. Instead, a motor goal is turned into multiple feedback laws that will adjust the motor output as the state estimate deviates from the goal. 
+
+** Trial to Trial Variability
+
+Trials of the same movement will not be the same from trial to trial. This is most likely due to:
+
+1) Redundancy that is not corrected because it does not affect the goal due to the minimum intervention principle
+
+2) Noise in the motor outputs themselves
+
+
+* Reviews
+
+\cite{Scott2012}
+
+\cite{Scott2004}
+
+\cite{Diedrichsen2010} Considers more complicated movements that involve coordination in the contex of OFC.
+
+\cite{Franklin2011} Considers the concepts of Bayesian Decision Theory, Optimal Feedback Control, Forward Models, Impendence control and motor learning
+
+\cite{Todorov2004} Technical review by the person who pioneered OFC several years before
+
+#+BIBLIOGRAPHY: library plain option:--no-keywords option:--no-abstract limit:t

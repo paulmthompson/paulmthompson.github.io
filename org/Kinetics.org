@@ -1,0 +1,100 @@
+
+#+TITLE: Kinetics
+
+* Definition
+
+Kinetics, or dynamics, considers the causes of motion, which in practical terms means its forces and torques. In neuroscience, kinetics are used in reference to 1) the forces of motion of different parts of the body and 2) the encoding of those forces in the cortex. Compare to [[../Kinematics.html][kinematics]], which represent the motion of a body without considering the cause (velocity, position).
+
+* Overview
+
+There seems to be reasonable evidence that the cortex has *something* to do with force output, but what is unclear. M1 is more correlated with forces than any other part. In particular, experiments done in the caudal part of M1 (where Corticomotorneurons happen to be) seem to give the best evidence about force-neuron relations.
+
+* Themes and Concepts
+
+** Type of Force
+
+*Static* force is unchanging during the experiment
+
+*Dynamic* force changes during the experiment. Not as well studied.
+
+** Experimental Conditions
+
+*Single Joint* usually just involving the wrist
+
+*Whole Arm* try to more accurately emulate actual arm movements. May be in 2D or 3D
+
+** Isometric
+
+No movement during the task. This became very interesting after the population vector theory was created in 1982.
+
+* Experimental Evidence
+
+** Single Joint Studies
+
+*** Experiments
+
+\cite{Evarts1968}
+\cite{Evarts1969}
+\cite{Cheney1980}
+\cite{Fetz1980}
+\cite{Evarts1983}
+\cite{Bennet1994}
+\cite{Hepp-Reymond1999}
+\cite{Maier1993}
+
+*** Concepts
+
+[[../Corticomotorneurons.html][Corticomotorneurons]]' activity vary with force during wrist movements \cite{Cheney1980}. 
+
+Many studies showed that some neurons vary with kinetics, but at the same time there were many neurons that did not \cite{Kalaska2009}.
+
+Correlations of M1 activity with the force vector were often nonlinear \cite{Ashe1997}.
+
+** Whole Arm Studies
+
+*** Experiments
+
+\cite{Kalaska1989} Repeat of Evarts tasks in 2D. When a 2D movement task was perturbed by a constant force in different directions, there were neurons that responded by increasing force when muscles had to increase force to stay on task. At the same time, there were neurons that continued to respond mostly to direction, particularly in area 
+
+\cite{Gribble2002}
+\cite{Cabel2001}
+
+*** Concepts
+
+Support was gathered that M1 could represent joint centered kinetics.
+
+There was also support that this was *not* was what was happening in area 5, and it was difficult to find correlations.
+
+** Isometric Studies
+
+*** Experiments
+
+\cite{Georgopoulos1992} - M1 was not related to force output but instead to the change in force or the net force. Basically M1 was tuned to the direction things ended up moving toward, not to where the original intention was to go.
+
+\cite{Taira1996} static force study looking at the contribution of cells to direction and magnitude of force vector
+
+\cite{Boline2005} dynamic force study. most of the cells were related only to the *direction* of dynamic force output. overlap between the static and dynamic cell populations
+
+*** Concepts
+
+M1 seems involved in isometric force output but is not directly signaling to muscles to do this \cite{Kalaska2009}
+
+** Multiple Tasks
+
+*** Experiments
+
+\cite{Sergio2003} isometric 2D
+\cite{Sergio2005} isometric and reaching - this is a monster of an article that addresses a great many things.
+\cite{Hamel-Paquet2006} area five and isometric
+
+*** Concepts
+
+
+
+* Reviews
+
+\cite{Ashe1997} Detailed Review of early experiments linking cortical activity with output force
+
+\cite{Kalaska2009} Comprehensive review motor cortex neural code which includes section on kinetics vs kinematics. 
+
+#+BIBLIOGRAPHY: library plain option:--no-keywords option:--no-abstract limit:t
