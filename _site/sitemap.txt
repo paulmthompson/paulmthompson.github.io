@@ -1,0 +1,9 @@
+
+http://paulmthompson.github.io/CV.html
+http://paulmthompson.github.io/Research.html
+http://paulmthompson.github.io/Software.html
+http://paulmthompson.github.io/about.html
+http://paulmthompson.github.io/atom.xml
+http://paulmthompson.github.io/
+http://paulmthompson.github.io/rss.xml
+http://paulmthompson.github.io/sitemap.txt
