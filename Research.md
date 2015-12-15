@@ -1,5 +1,5 @@
 ---
-layout : page
+layout : default
 title : Research
 header : Research
 group : navigation

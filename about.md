@@ -1,5 +1,5 @@
 ---
-layout : page
+layout : default
 title : About Me
 header : About
 group : navigation
