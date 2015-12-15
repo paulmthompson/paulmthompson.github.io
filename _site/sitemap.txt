@@ -7,3 +7,4 @@ http://paulmthompson.github.io/atom.xml
 http://paulmthompson.github.io/
 http://paulmthompson.github.io/rss.xml
 http://paulmthompson.github.io/sitemap.txt
+http://paulmthompson.github.io/test.html
