@@ -14,7 +14,7 @@ production_url : http://paulmthompson.github.io
 JB :
   version : 0.3.0
 
-  BASE_PATH : http://paulmthompson.github.io
+  BASE_PATH : false
 
   ASSET_PATH : false
 
