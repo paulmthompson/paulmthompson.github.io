@@ -1,4 +1,0 @@
-
-#+TITLE: Feedback Control
-
-Feedback, or closed loop, control is an error-correcting system. A simple system will utilize a controller to generate a response when error is greater than some detected threshold. 

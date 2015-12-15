@@ -1,8 +1,0 @@
-
-Dorsal Stream
-
-\cite{Schwartz2007}
-
-#+BIBLIOGRAPHY: ../library.bib  plain option:--no-keywords option:--no-abstract limit:t
-
-
