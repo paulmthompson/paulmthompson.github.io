@@ -1,7 +1,0 @@
-
-#+TITLE: Feed Forward Control
-
-Feed forward control, open loop control and prediction can all be used interchangably. These represent a step where a motor action is anticipated and therefore implemented in a particular way. For instance, prediction is used to set the initial conditions of a movement.
-
-Feedforward control has the benefit of being very fast, however it cannot be adjusted once the plan is implemented.
-
