@@ -1,33 +1,34 @@
 ---
-layout : page
+layout : default
 title : CV
-header : CV
 group : navigation
 weight : 2
 ---
+
+# Paul Michael Thompson
 
 ## Education
 
 <b>Duke University</b>
 
-<u>PhD in Biomedical Engineering</u> (expected 2020) <br>
-Research Focus: Bimanual Movements, Motor System Electrophysiology
+<p><i>PhD in Biomedical Engineering</i> (expected 2020) </p>
+Research Focus: Bimanual Movements, Motor System Electrophysiology <br>
 Advisor: Miguel Nicolelis, MD, PhD
 
 <b>Duke University</b>
 
-<u>Doctor of Medicine</u> (expected 2020) <br>
+<p><i>Doctor of Medicine</i> (expected 2020)</p>
 Clinical rotations in Radiology, Family Medicine, Internal Medicine, Surgery, Psychiatry, Neurology, Pediatrics, and Obstetrics and Gynecology
 
 <b>Case Western Reserve University</b>
 
-<u>MS in Biomedical Engineering</u> (May 2013) <br>
+<p><i>MS in Biomedical Engineering</i> (May 2013) </p>
 Thesis: A Device Compatible with Functional Magnetic Resonance Imaging for Assessing Brain Activity During a Finger Force Tracking Motor Task. <br>
 Advisor: Jayme Knutson, PhD
 
 <b>Case Western Reserve University</b>
 
-<u>BSE in Biomedical Engineering</u>, concentration in bioelectricity (May 2012) <br>
+<p><i>BSE in Biomedical Engineering</i>, concentration in bioelectricity (May 2012) </p>
 Summa Cum Laude. Case Alumni Association Award for highest GPA in engineering. BME Award for Best Teaching Assistant. BME Award for Best Senior Project. Student Leadership Award for Outstanding Supplemental Instructor. 
 
 ## Teaching Experience
@@ -69,7 +70,7 @@ Ali Anka, <u>Paul Thompson</u>, Eric Mott, Rahul Sharma, Ruozhen Zhang, Nathan C
 
 <b>Posters</b>
 
-<u>Paul Thompson</u>, Mikhail Lebedev, Miguel A. L. Nicolelis. Cortical Representations of Bimanual Movements: Patterns of Interference. Society for Neuroscience 2015.
+<p><u>Paul Thompson</u>, Mikhail Lebedev, Miguel A. L. Nicolelis. Cortical Representations of Bimanual Movements: Patterns of Interference. Society for Neuroscience 2015.</p>
 
 
 
