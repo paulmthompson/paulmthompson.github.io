@@ -10,6 +10,9 @@ github : paulmthompson
 
 production_url : http://paulmthompson.github.io
 
+collections:
+  PB:
+    output: true
 
 JB :
   version : 0.3.0
@@ -17,6 +20,8 @@ JB :
   BASE_PATH : false
 
   ASSET_PATH : false
+
+  THEME : bootstrap-3
 
   # These paths are to the main pages Jekyll-Bootstrap ships with.
   # Some JB helpers refer to these paths; change them here if needed.
@@ -89,10 +94,9 @@ JB :
 defaults:
   -
     scope:
-      path: "wiki"
-      type: "pages"
+      path: "PB"
+      type: "PB"
     values:
       layout: "default"
       author: "Paul Thompson"
-      category: "wiki"
 ...
