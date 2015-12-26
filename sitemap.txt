@@ -1,5 +1,6 @@
 
 http://paulmthompson.github.io/CV.html
+http://paulmthompson.github.io/PBrain.html
 http://paulmthompson.github.io/Research.html
 http://paulmthompson.github.io/Software.html
 http://paulmthompson.github.io/about.html
