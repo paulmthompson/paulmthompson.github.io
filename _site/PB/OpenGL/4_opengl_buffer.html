@@ -1,0 +1,235 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Vertices and data on the GPU</title>
+    
+    <meta name="author" content="">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap styles -->
+    <link href="/assets/themes/bootstrap-3/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Optional theme -->
+    <link href="/assets/themes/bootstrap-3/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- Sticky Footer -->
+    <link href="/assets/themes/bootstrap-3/bootstrap/css/bs-sticky-footer.css" rel="stylesheet">
+    
+    <!-- Custom styles -->
+    <link href="/assets/themes/bootstrap-3/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!-- Update these with your own images
+      <link rel="shortcut icon" href="images/favicon.ico">
+      <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+      <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+      <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+    -->
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+  </head>
+
+  <body>
+    <div id="wrap">
+      <nav class="navbar navbar-default" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#jb-navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="jb-navbar-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/about.html">About Me</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/CV.html">CV</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/Research.html">Research</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/Software.html">Software</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/PBrain.html">Peripheral Brain</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+
+
+          </ul>
+          <form class="navbar-form navbar-right" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+        </div><!-- /.navbar-collapse -->
+      </nav>
+
+      <div class="container">
+        
+<div class="page-header">
+  <h1>Vertices and data on the GPU </h1>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <p>The 3d positions of points on the face of simple shapes (the vertices) are the positions that are important for OpenGL rendering. It is also important to note that describing the 3d positions for openGL is also the step where data is communicated to memory on the graphics card.</p>
+
+<h3 id="glbuffer">GLBuffer</h3>
+
+<p>Kind of like C, OpenGL is going to want to store all of its data in chunks without caring much what those chunks are. The best Julia types to go between Julia and OpenGL would therefore work the same way (they would not have pointers to data in other locations). Immutable Arrays, or Fixed Size Arrays, do just this.</p>
+
+<figure class="highlight"><pre><code class="language-julia" data-lang="julia"><span class="kd">const</span> <span class="n">win</span> <span class="o">=</span> <span class="n">Screen</span><span class="x">()</span>
+<span class="n">gl</span><span class="o">=</span><span class="n">GLBuffer</span><span class="x">(</span><span class="n">Vec</span><span class="x">{</span><span class="mi">2</span><span class="x">,</span><span class="kt">Float32</span><span class="x">}[(</span><span class="mf">0.0</span><span class="x">,</span><span class="mf">0.5</span><span class="x">),(</span><span class="mf">0.5</span><span class="x">,</span><span class="o">-</span><span class="mf">0.5</span><span class="x">),(</span><span class="o">-</span><span class="mf">0.5</span><span class="x">,</span><span class="o">-</span><span class="mf">0.5</span><span class="x">)])</span></code></pre></figure>
+
+<p>It may be more intuitive for the user to express points in some dimensional space as such, and have the data structure be in the form of a Fixed Size Array, that way there is an intutive transfer back and forth between Julia world and OpenGL world. The GeometryTypes package does just this, where 3, two-dimensional points of 32-bit floating point numbers can be expressed as:</p>
+
+<figure class="highlight"><pre><code class="language-julia" data-lang="julia"><span class="n">gl</span><span class="o">=</span><span class="n">GLBuffer</span><span class="x">(</span><span class="n">Point2f0</span><span class="x">[(</span><span class="mf">0.0</span><span class="x">,</span> <span class="mf">0.5</span><span class="x">),</span> <span class="x">(</span><span class="mf">0.5</span><span class="x">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="x">),</span> <span class="x">(</span><span class="o">-</span><span class="mf">0.5</span><span class="x">,</span><span class="o">-</span><span class="mf">0.5</span><span class="x">)])</span></code></pre></figure>
+
+<h3 id="sending-data-to-and-from-the-gpu">Sending data to and from the GPU</h3>
+
+<p>The GLBuffer type is the interface to the CPU. This means that simply indexing the buffer type is actually gathering data from the GPU. The following code:</p>
+
+<figure class="highlight"><pre><code class="language-julia" data-lang="julia"><span class="n">gl</span><span class="x">[</span><span class="mi">1</span><span class="x">]</span></code></pre></figure>
+
+<p>will produce:</p>
+
+<p>FixedSizeArrays.Point{2,Float32}((0.0f0,0.5f0))</p>
+
+<p>We can change the data stored on the GPU as well. The following code:</p>
+
+<figure class="highlight"><pre><code class="language-julia" data-lang="julia"><span class="n">GLAbstraction</span><span class="o">.</span><span class="n">setindex!</span><span class="x">(</span><span class="n">gl</span><span class="x">,</span><span class="n">Point2f0</span><span class="x">(</span><span class="mf">0.0</span><span class="x">,</span><span class="mf">0.0</span><span class="x">),</span> <span class="mi">1</span><span class="x">:</span><span class="mi">1</span><span class="x">)</span>
+<span class="n">gl</span><span class="x">[</span><span class="mi">1</span><span class="x">]</span></code></pre></figure>
+
+<p>will produce:</p>
+
+<p>FixedSizeArrays.Point{2,Float32}((0.0f0,0.0f0))</p>
+
+<h3 id="calculations-on-the-gpu">Calculations on the GPU</h3>
+
+<p>Image you want to add 1.0 to every point on the buffer in both the x and y direction. Based on the code above, this could be implemented as the following:</p>
+
+<figure class="highlight"><pre><code class="language-julia" data-lang="julia"><span class="k">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="x">:</span><span class="mi">3</span>
+    	<span class="n">GLAbstraction</span><span class="o">.</span><span class="n">setindex!</span><span class="x">(</span><span class="n">gl</span><span class="x">,</span><span class="n">gl</span><span class="x">[</span><span class="n">i</span><span class="x">]</span><span class="o">+</span><span class="mf">1f0</span><span class="x">,</span><span class="n">i</span><span class="x">:</span><span class="n">i</span><span class="x">)</span>
+<span class="k">end</span></code></pre></figure>
+
+<p>This is actually pretty inefficient. For every point, you are transfering the data from the GPU to CPU by indexing, adding 1.0 to the Point on the CPU, and then sending the new point back to the GPU to be stored on the buffer. GPUs are actually pretty smart themselves, and it would be much more efficient to just send a value of 1.0 to the GPU, allow it to added to all of the points efficiently using the parallel architecture of the GPU, and then not have to return anything back. Unforunately as of right now, we can’t execute pure Julia code on a GPU, but there are optionis to accomplish this idea. The easiest using OpenGL would use shaders, as discussed next.</p>
+
+<p>Next:
+<a href="5_shaders.html">Shaders</a></p>
+
+<p>Previous:
+<a href="3_render.html">Rendering Components</a></p>
+
+
+  </div>
+</div>
+
+
+      </div>
+
+    </div>
+
+    <div id="footer">
+      <div class="container">
+        <p>&copy; 2016 
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>
+        </p>
+      </div>
+    </div>
+
+    
+
+
+
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-123-12']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+
+
+  </body>
+</html>
+
