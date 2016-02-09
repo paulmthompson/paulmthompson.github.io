@@ -1,0 +1,321 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Manipulating Shapes</title>
+    
+    <meta name="author" content="">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap styles -->
+    <link href="/assets/themes/bootstrap-3/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Optional theme -->
+    <link href="/assets/themes/bootstrap-3/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- Sticky Footer -->
+    <link href="/assets/themes/bootstrap-3/bootstrap/css/bs-sticky-footer.css" rel="stylesheet">
+    
+    <!-- Custom styles -->
+    <link href="/assets/themes/bootstrap-3/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!-- Update these with your own images
+      <link rel="shortcut icon" href="images/favicon.ico">
+      <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+      <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+      <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+    -->
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+  </head>
+
+  <body>
+    <div id="wrap">
+      <nav class="navbar navbar-default" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#jb-navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="jb-navbar-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/about.html">About Me</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/CV.html">CV</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/Research.html">Research</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/Software.html">Software</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/PBrain.html">Peripheral Brain</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+
+
+          </ul>
+          <form class="navbar-form navbar-right" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+        </div><!-- /.navbar-collapse -->
+      </nav>
+
+      <div class="container">
+        
+<div class="page-header">
+  <h1>Manipulating Shapes </h1>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <p>You most likely are not going through the pains of graphical programming because you simply want a static image to be displayed on the screen; you most likely want it to be able to <em>do</em> something. Now we can walk through how we can make our shape change.</p>
+
+<h3 id="moving-and-scaling-a-buffer">Moving and scaling a buffer</h3>
+
+<p>We already saw how we can manipulate data on the GPU. We can simply manipulate the GPU data associated with the shape we have displayed if we wish to move it across the screen.</p>
+
+<p>If we just used the code from the simple shape section as is, we would immediately run into trouble because the renderloop function runs in an infinite loop, and would consequently not accept new input. It does however contain a yield function that can accept other tasks if they arrive. We should therefore run renderloop using the @async macro.</p>
+
+<figure class="highlight"><pre><code class="language-julia" data-lang="julia"><span class="n">using</span> <span class="n">GLWindow</span><span class="x">,</span> <span class="n">GLAbstraction</span><span class="x">,</span> <span class="n">GeometryTypes</span>
+
+<span class="kd">const</span> <span class="n">window</span> <span class="o">=</span> <span class="n">Screen</span><span class="x">()</span>
+
+<span class="kd">const</span> <span class="n">vsh</span> <span class="o">=</span> <span class="n">vert</span><span class="s">"""
+
+in vec2 position;
+void main(){
+	gl_Position = vec4(position, 0.0, 1.0);
+}
+"""</span>
+
+<span class="kd">const</span> <span class="n">fsh</span> <span class="o">=</span> <span class="n">frag</span><span class="s">"""
+
+out vec4 outColor;
+void main() {
+	outColor = vec4(1.0, 0.0, 0.0, 1.0);
+}
+"""</span>
+
+<span class="kd">const</span> <span class="n">triangle</span> <span class="o">=</span> <span class="n">std_renderobject</span><span class="x">(</span>
+    <span class="n">Dict</span><span class="x">{</span><span class="n">Symbol</span><span class="x">,</span> <span class="kt">Any</span><span class="x">}(</span>
+    <span class="x">:</span><span class="n">position</span> <span class="o">=&gt;</span> <span class="n">GLBuffer</span><span class="x">(</span><span class="n">Point2f0</span><span class="x">[(</span><span class="mf">0.0</span><span class="x">,</span> <span class="mf">0.5</span><span class="x">),</span> <span class="x">(</span><span class="mf">0.5</span><span class="x">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="x">),</span> <span class="x">(</span><span class="o">-</span><span class="mf">0.5</span><span class="x">,</span><span class="o">-</span><span class="mf">0.5</span><span class="x">)]),</span>
+    	<span class="x">),</span>
+<span class="n">LazyShader</span><span class="x">(</span><span class="n">vsh</span><span class="x">,</span> <span class="n">fsh</span><span class="x">)</span>
+<span class="x">)</span>
+
+<span class="n">push!</span><span class="x">(</span><span class="n">window</span><span class="o">.</span><span class="n">renderlist</span><span class="x">,</span><span class="n">triangle</span><span class="x">)</span>
+
+<span class="nd">@async</span> <span class="n">renderloop</span><span class="x">(</span><span class="n">window</span><span class="x">)</span></code></pre></figure>
+
+<p>Now if we change the points in the position buffer, we will see this manifested in our GLWindow. If we wanted to move the triangle up and to the right, we could do this:</p>
+
+<figure class="highlight"><pre><code class="language-julia" data-lang="julia"><span class="n">gl</span><span class="o">=</span><span class="n">triangle</span><span class="o">.</span><span class="n">vertexarray</span><span class="o">.</span><span class="n">buffers</span><span class="x">[</span><span class="s">"position"</span><span class="x">]</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="x">:</span><span class="mi">3</span>
+    	<span class="n">GLAbstraction</span><span class="o">.</span><span class="n">setindex!</span><span class="x">(</span><span class="n">gl</span><span class="x">,</span><span class="n">gl</span><span class="x">[</span><span class="n">i</span><span class="x">]</span><span class="o">+</span><span class="mf">1f0</span><span class="x">,</span><span class="n">i</span><span class="x">:</span><span class="n">i</span><span class="x">)</span>
+<span class="k">end</span></code></pre></figure>
+
+<p>If we wanted to move just to the right:</p>
+
+<figure class="highlight"><pre><code class="language-julia" data-lang="julia"><span class="k">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="x">:</span><span class="mi">3</span>
+    	<span class="n">GLAbstraction</span><span class="o">.</span><span class="n">setindex!</span><span class="x">(</span><span class="n">gl</span><span class="x">,</span><span class="n">Point2f</span><span class="x">(</span><span class="n">gl</span><span class="x">[</span><span class="n">i</span><span class="x">][</span><span class="mi">1</span><span class="x">],</span><span class="n">gl</span><span class="x">[</span><span class="n">i</span><span class="x">][</span><span class="mi">2</span><span class="x">]</span><span class="o">+</span><span class="mf">1f0</span><span class="x">),</span><span class="n">i</span><span class="x">:</span><span class="n">i</span><span class="x">)</span>
+<span class="k">end</span></code></pre></figure>
+
+<p>Or if we wanted to make the triangle shrink by half:</p>
+
+<figure class="highlight"><pre><code class="language-julia" data-lang="julia"><span class="k">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="x">:</span><span class="mi">3</span>
+    	<span class="n">GLAbstraction</span><span class="o">.</span><span class="n">setindex!</span><span class="x">(</span><span class="n">gl</span><span class="x">,</span><span class="n">gl</span><span class="x">[</span><span class="n">i</span><span class="x">]</span><span class="o">*.</span><span class="mi">5</span><span class="x">,</span><span class="n">i</span><span class="x">:</span><span class="n">i</span><span class="x">)</span>
+<span class="k">end</span></code></pre></figure>
+
+<p>Overall this process is kind of cumbersome, and inefficient. Even though the entire shape is really moving the same direction, we receiving and sending each data point. We can do a little better in our shrink example by passing everything at once:</p>
+
+<figure class="highlight"><pre><code class="language-julia" data-lang="julia"><span class="n">GLAbstraction</span><span class="o">.</span><span class="n">setindex!</span><span class="x">(</span><span class="n">gl</span><span class="x">,</span><span class="n">gl</span><span class="o">*.</span><span class="mi">5</span><span class="x">,</span><span class="mi">1</span><span class="x">:</span><span class="mi">3</span><span class="x">)</span></code></pre></figure>
+
+<p>We still are having to resend a value for every index on the buffer, and performing all of the computations on the CPU. We can do better than this.</p>
+
+<h3 id="uniform-manipulations">Uniform Manipulations</h3>
+
+<p>In each of the instances from above, we really only are using one value to manipulate our entire triangle: moving all points in the x and y direction by 1.0, scaling all points by 0.5. Could we just pass this value? The answer is yes. Since it would be applied to every point on a buffer, we would designate this as a “uniform” variable in our shader. We are also going to have to tell our shader what to do with it. If we wanted to make a uniform variable to move all of our points in the x direction, we could define the following vertex shader:</p>
+
+<figure class="highlight"><pre><code class="language-julia" data-lang="julia"><span class="kd">const</span> <span class="n">vsh</span> <span class="o">=</span> <span class="n">vert</span><span class="s">"""
+{GLSL_VERSION}}
+
+in vec2 position;
+
+uniform float t;
+
+void main(){
+    	vec2 pos = position;
+    	pos.x+=t;
+    	gl_Position = vec4(pos, 0.0, 1.0);
+}
+"""</span></code></pre></figure>
+
+<p>We would also define this value in our dictionary in the triangle:</p>
+
+<figure class="highlight"><pre><code class="language-julia" data-lang="julia"><span class="n">data</span><span class="o">=</span><span class="n">merge</span><span class="x">(</span><span class="n">Dict</span><span class="x">{</span><span class="n">Symbol</span><span class="x">,</span> <span class="kt">Any</span><span class="x">}(</span>
+    <span class="x">:</span><span class="n">position</span> <span class="o">=&gt;</span> <span class="n">GLBuffer</span><span class="x">(</span><span class="n">Point2f0</span><span class="x">[(</span><span class="mf">0.0</span><span class="x">,</span> <span class="mf">0.5</span><span class="x">),</span> <span class="x">(</span><span class="mf">0.5</span><span class="x">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="x">),</span> <span class="x">(</span><span class="o">-</span><span class="mf">0.5</span><span class="x">,</span><span class="o">-</span><span class="mf">0.5</span><span class="x">)]),</span>
+    <span class="x">:</span><span class="n">t</span> <span class="o">=&gt;</span> <span class="mf">0.0</span><span class="x">))</span>
+
+<span class="n">l</span> <span class="o">=</span> <span class="n">LazyShader</span><span class="x">(</span><span class="n">vsh</span><span class="x">,</span> <span class="n">fsh</span><span class="x">)</span>
+
+<span class="kd">const</span> <span class="n">triangle</span> <span class="o">=</span> <span class="n">std_renderobject</span><span class="x">(</span><span class="n">data</span><span class="x">,</span><span class="n">l</span><span class="x">)</span></code></pre></figure>
+
+<p>We can now move our triangle much more easily:</p>
+
+<figure class="highlight"><pre><code class="language-julia" data-lang="julia"><span class="c">#Move right</span>
+<span class="n">triangle</span><span class="o">.</span><span class="n">uniforms</span><span class="x">[:</span><span class="n">t</span><span class="x">]</span><span class="o">=</span><span class="mf">1f0</span>
+
+<span class="c">#Move left</span>
+<span class="n">triangle</span><span class="o">.</span><span class="n">uniforms</span><span class="x">[:</span><span class="n">t</span><span class="x">]</span><span class="o">=-</span><span class="mf">1f0</span></code></pre></figure>
+
+<h3 id="matrix-manipulations">Matrix manipulations</h3>
+
+<p>So with a few uniform variables, we can easily be moving our 2D triangle all over the place. Now what if we don’t have a simple 2D triangle, but a large complex 3D shape? Something that can translate or rotate in 3 dimensions. Each degree of freedom would give us a new uniform variable to keep track of. Alternatively, we could use a matrix.</p>
+
+<figure class="highlight"><pre><code class="language-julia" data-lang="julia"><span class="kd">const</span> <span class="n">vsh</span> <span class="o">=</span> <span class="n">vert</span><span class="s">"""
+
+in vec2 position;
+uniform mat4 matrix;
+
+void main(){
+    	gl_Position = matrix * vec4(position, 0.0, 1.0);
+}
+"""</span></code></pre></figure>
+
+<p>We then add this to our dictionary:</p>
+
+<figure class="highlight"><pre><code class="language-julia" data-lang="julia"><span class="n">mymat</span><span class="o">=</span><span class="n">FixedSizeArrays</span><span class="o">.</span><span class="n">Mat</span><span class="x">{</span><span class="mi">4</span><span class="x">,</span><span class="mi">4</span><span class="x">,</span><span class="kt">Float32</span><span class="x">}(</span><span class="n">eye</span><span class="x">(</span><span class="kt">Float32</span><span class="x">,</span><span class="mi">4</span><span class="x">))</span>
+
+<span class="n">data</span><span class="o">=</span><span class="n">merge</span><span class="x">(</span><span class="n">Dict</span><span class="x">{</span><span class="n">Symbol</span><span class="x">,</span> <span class="kt">Any</span><span class="x">}(</span>
+    <span class="x">:</span><span class="n">position</span> <span class="o">=&gt;</span> <span class="n">GLBuffer</span><span class="x">(</span><span class="n">Point2f0</span><span class="x">[(</span><span class="mf">0.0</span><span class="x">,</span> <span class="mf">0.5</span><span class="x">),</span> <span class="x">(</span><span class="mf">0.5</span><span class="x">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="x">),</span> <span class="x">(</span><span class="o">-</span><span class="mf">0.5</span><span class="x">,</span><span class="o">-</span><span class="mf">0.5</span><span class="x">)]),</span>
+    <span class="x">:</span><span class="n">matrix</span> <span class="o">=&gt;</span> <span class="n">mymat</span><span class="x">))</span>
+
+<span class="n">l</span> <span class="o">=</span> <span class="n">LazyShader</span><span class="x">(</span><span class="n">vsh</span><span class="x">,</span> <span class="n">fsh</span><span class="x">)</span>
+
+<span class="kd">const</span> <span class="n">triangle</span> <span class="o">=</span> <span class="n">std_renderobject</span><span class="x">(</span><span class="n">data</span><span class="x">,</span><span class="n">l</span><span class="x">)</span></code></pre></figure>
+
+<p>Now we have a flexible system where we can upload a new position matrix everytime it is necessary, and this one matrix can take care of rotations and translations at the same time. None of this is really necessary for a simple 2D triangle though. The size of the matrix actually takes up more space than re-uploading the buffer of 2D points. That one 16 float matrix though is much much smaller than a large 3D object with many vertices, made of many many triangles. Let us consider that next.</p>
+
+<p>Next:
+<a href="8_complex_shape.html">Complex Shapes</a></p>
+
+<p>Previous:
+<a href="6_simple_shape.html">Simple Shape</a></p>
+
+  </div>
+</div>
+
+
+      </div>
+
+    </div>
+
+    <div id="footer">
+      <div class="container">
+        <p>&copy; 2016 
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>
+        </p>
+      </div>
+    </div>
+
+    
+
+
+
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-123-12']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+
+
+  </body>
+</html>
+
