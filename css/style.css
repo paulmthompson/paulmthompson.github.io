@@ -1,0 +1,62 @@
+
+/*Navigation Bar */
+/* https://www.freecodecamp.org/news/how-to-easily-build-mashables-navigation-bar-with-html-and-css-9e5007af786/ */
+
+nav {
+  width: 100%;
+  height: 45px;
+  background-color: #0b98de;
+  overflow: hidden;
+}
+
+nav a {
+  display: block;
+  float: left;
+  font-family: sans-serif;
+  font-size: 15px;
+  color: white;
+  /* border: 1px solid #000; */
+  padding-top: 20px;    padding-right: 10px;    padding-bottom: 10px;    padding-left: 10px;
+  text-decoration: none
+}
+
+nav a:hover {
+  background-color: #17b0cf;
+}
+
+#logo {
+  font-family: sans-serif;
+  font-size: 30px;
+  letter-spacing -2px;
+  text-shadow: 1px 1px 1px
+  padding-left: 20px;
+  padding-right: 40px;
+  margin-right: 10px;
+  margin-top: -20px;
+}
+
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 100px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-github {
+  color: white;
+  background: gray;
+}
+
+body {
+  text-align: justify;
+  text-justify: auto;
+  margin: 0 auto;
+  width: 600 px;
+  padding: 0 20px 20px 20px;
+}
