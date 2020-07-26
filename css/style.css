@@ -60,8 +60,8 @@ nav a:hover {
  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
  z-index: 1; /* Stay on top */
  top: 45px; /* Stay at the top */
- left: 0;
- background-color: #757575; /* Black */
+ left: 20px;
+ background-color: #8ED6FA; /*  */
  overflow-x: hidden; /* Disable horizontal scroll */
  padding-top: 20px;
 }
