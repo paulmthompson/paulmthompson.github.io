@@ -16,8 +16,8 @@
 
    <!-- Side navigation -->
    <div class="sidenav">
-     <a href="#">Overview</a>
-     <a href="#">Ephys</a>
+     <a href="software.html">Overview</a>
+     <a href="software/intan.html">Ephys</a>
      <a href="#">Camera</a>
      <a href="#">Whiskertracking</a>
      <a href="#">Jupyterhub</a>
@@ -27,6 +27,36 @@
 
    <div class="main">
      <h1>Software and Hardware Resources</h1>
+     <p>
+       I make hardware, software, and devices for neuroscience research. I will distribute as much as I am
+       able on this website. You can find categories of these items to the left.
+       <br>
+       <br>
+       For extracellular electrophysiology, I have created the
+       <a href="https://github.com/paulmthompson/Intan.jl">Intan.jl software package</a> for acquiring data,
+       spike sorting, and controlling experiments. I designed this initially to use with Intan hardware, but
+       it can be adapted to be used with other control systems.
+       <br>
+       <br>
+       Part of my research studies touch using the whisker system as a model. Consequently, I have had to design
+       experiments that can image the whiskers of awake behaving animals, and process the data. I have made software
+       to control the acquisition from multiple cameras simultaneously, and compress the videos. I have also
+       developed the <a href="https://github.com/paulmthompson/WhiskerTracking.jl">WhiskerTracking.jl toolbox</a>,
+       a Julia-based analysis package that uses deep learning to
+       track whiskers in high speed videos.
+       <br>
+       <br>
+       Systems neuroscience is highly interdisciplinary, and I often work with peers who have backgrounds in
+       cellular and molecular biology. I am interested in frameworks that let us easily use similar computational
+       and analysis tools without requiring extensive background in linux or programming. I have set up a cluster using
+       Jupyterhub to spawn programs into your web-browser.
+       <br>
+       <br>
+       Finally, one of the biggest bottle-necks in our lab is our confocal microscope. Several groups have
+       recently shown how one can get near confocal optical quality with significant speed advantages
+       using a single objective light sheet microscope. I have
+       limited optics experience, but have tried to put together a single-objective light sheet of my own.
+     </p>
    </div>
 
  </body>
