@@ -100,3 +100,8 @@ body {
   width: 600 px;
   padding: 0 20px 20px 20px;
 }
+
+/* Solid border */
+hr.solid {
+  border-top: 3px solid #000000;
+}
