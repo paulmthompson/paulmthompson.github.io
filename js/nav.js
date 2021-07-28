@@ -3,3 +3,7 @@
 jQuery(document).ready(function($){
   $("#navigation").load("/menu.html");
 });
+
+jQuery(document).ready(function($){
+  $("#navigation_software").load("/menu_software.html");
+});
