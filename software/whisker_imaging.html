@@ -60,7 +60,7 @@
        options available from large electronic suppliers like Digikey or Mouser. I have
        personally used the Osram LZ4 parts in both 850nm and 940nm wavelength with success: <br>
        <a href="https://www.digikey.com/en/products/detail/osram-sylvania-inc/LZ4-40R408-0000/4976734">LZ4 850nm</a><br>
-       <a href="https://www.digikey.com/en/products/detail/osram-sylvania-inc/LZ4-40R708-0000/4976736">LZ4 9400nm</a><br>
+       <a href="https://www.digikey.com/en/products/detail/osram-sylvania-inc/LZ4-40R708-0000/4976736">LZ4 940nm</a><br>
        <br>
        There are a few features to highlight about these devices: 1) They are actually 4 LEDs
        packaged together, consequently they require approximately ~12 volts to run; 2) they
@@ -86,8 +86,36 @@
        we can alternatively glue our LED board to something that is the ideal shape.
        <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143547">This paper</a>
        glues the LED board to a Thor Labs
-       <a href="https://www.thorlabs.com/thorproduct.cfm?partnumber=AD3LLG">This paper</a>
-       for a different purpose that can then readily be integrated into their optical equipment.
+       <a href="https://www.thorlabs.com/thorproduct.cfm?partnumber=AD3LLG">part</a>
+       that can then readily be integrated into their optical equipment. <br>
+       <br>
+       It is worth mentioning how best to power these LEDs. The packages above will require about
+       12 volts, and turn on with 50-100 mA, and steadily increase intensity up to a maximum current
+       above 1 Amp. <b> You absolute do not need to use 1 Amp, and should only have to operate
+       these LEDs at low power.</b> It is also worth pointing out that these devices have very
+       low internal resistance, so if they have sufficient voltage to power the diode (~12 Volts),
+       they will draw the amount of current they are provided. For this reason, <b>you should not
+       plug your LED into a regular ~12 Volt DC power adapter </b>. The LED will pull as much current
+       as can be maximally supplied, and probably immediately burn out (break) the LED. Even if it
+       doesn't break, you will have maximum intensity, which is unnecessary and probably not good
+       for your eyes. We want a power source with <b>adjustable</b> current output at the
+       input voltage. Two simple wants to accomplish this would be the following: 1) a fixed
+       voltage source with the LED and a <b>variable resistor</b> in series, which will
+       change the current drop across the LED. The current would be equal to the input voltage
+       minus the voltage drop across the LED (in other words the voltage drop across the
+       resistor) divided by the resistance; 2) we could use a current source with adjustable current.
+       It is worth noting that not all voltage/current sources are created equal in terms of noise.
+       Switch mode power supplies, which is the technology inside most AC/DC wall convertors are
+       <b>electrically noise</b> and not well suited for nearby electrophysiology. I like using
+       linear benchtop power supplies. These are certainly overkill, but I am of the opinion
+       that a lab can't have too many of these around. They are also the least electrically
+       noisy and highly dependable. You can buy from many companies. I have used the following: <br>
+       <a href="http://www.saelig.com/gpe-x32x/gpe-2323.htm">GW Instek 2-Channel</a><br>
+       <br>
+       Don't forget that if you are selecting a fancy linear power supply for low-noise
+       physiology nearby, you should shield the cable running from the power supply to your
+       LED; otherwise this will be a giant antenna!
+
 
      </p>
 
