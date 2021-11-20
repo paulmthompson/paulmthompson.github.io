@@ -7,6 +7,7 @@ nav {
   height: 45px;
   background-color: #0b98de;
   overflow: hidden;
+  position: fixed;
 }
 
 nav a {
