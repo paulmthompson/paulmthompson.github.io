@@ -69,7 +69,10 @@ nav a:hover {
 
 /* The navigation menu links */
 .sidenav a {
- padding: 6px 8px 6px 16px;
+  padding-top: 6px;
+  padding-right: 8px;
+  padding-bottom: 6px;
+  padding-left: 16px;
  text-decoration: none;
  font-size: 15px;
  color: #111;
@@ -84,14 +87,12 @@ nav a:hover {
 /* Style page content */
 .main {
  margin-left: 180px; /* Same as the width of the sidebar */
- padding: 0px 10px;
- padding-top: 20px;
+ padding-top: 20px
 }
 
 /* Style page content */
 .noside {
  margin-left: 0; /* Same as the width of the sidebar */
- padding: 0px 10px;
  padding-top: 20px;
 }
 
