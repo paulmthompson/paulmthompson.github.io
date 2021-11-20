@@ -17,7 +17,7 @@ nav a {
   font-size: 15px;
   color: white;
   /* border: 1px solid #000; */
-  padding-top: 20px;    padding-right: 10px;    padding-bottom: 10px;    padding-left: 10px;
+  padding-top: 0px;    padding-right: 10px;    padding-bottom: 10px;    padding-left: 10px;
   text-decoration: none
 }
 
@@ -85,6 +85,7 @@ nav a:hover {
 .main {
  margin-left: 180px; /* Same as the width of the sidebar */
  padding: 0px 10px;
+ padding-top: 20px;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
