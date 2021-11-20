@@ -93,15 +93,26 @@ nav a:hover {
 }
 
 body {
+}
+
+h1.ex1, h2.ex1, h3.ex1 {
+  font-family: "Verdana", Geneva, sans-serif;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 600px;
+}
+
+p.ex1, ul.ex1 {
   font-family: "Verdana", Geneva, sans-serif;
   text-align: justify;
   text-justify: auto;
-  margin: 0 auto;
-  width: 600 px;
-  padding: 0 20px 20px 20px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 600px;
 }
 
 /* Solid border */
 hr.solid {
   border-top: 3px solid #000;
+  width: 600px;
 }
