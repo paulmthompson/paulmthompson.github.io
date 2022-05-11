@@ -88,13 +88,13 @@ nav a:hover {
 /* Style page content */
 .main {
  margin-left: 180px; /* Same as the width of the sidebar */
- padding-top: 40px
+ padding-top: 100px
 }
 
 /* Style page content */
 .noside {
  margin-left: 0; /* Same as the width of the sidebar */
- padding-top: 40px;
+ padding-top: 100px;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
