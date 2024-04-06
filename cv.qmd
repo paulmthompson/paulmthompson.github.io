@@ -1,0 +1,135 @@
+---
+title: "CV"
+format:
+  html:
+    toc: true
+    
+css: cv.css
+---
+
+### **Education**
+
+<hr class="solid">
+
+**Doctor of Philosophy in Biomedical Engineering** <br> *Duke University* [September 2021]{.cvdate}
+
+Dissertation: Connecting morphology to physiology in the mouse tactile sensory system <br> Advisor: Fan Wang, PhD
+
+**Doctor of Medicine** <br> *Duke University* [September 2021]{.cvdate}
+
+Elective clinical rotations include Neuroradiology, Neurology, Neuropathology, and Neuro-oncology.
+
+**Master of Science in Biomedical Engineering**<br> *Case Western Reserve University* [May 2013]{.cvdate}
+
+Thesis: A Device Compatible with Functional Magnetic Resonance Imaging for Assessing Brain Activity During a Finger Force Tracking Motor Task. <br> Advisor: Jayme Knutson, PhD
+
+**BSE in Biomedical Engineering**, concentration in bioelectricity <br> *Case Western Reserve University* [May 2012]{.cvdate}
+
+Summa Cum Laude. <br> Case Alumni Association Award for highest GPA in engineering.<br> BME Award for Best Teaching Assistant.<br> BME Award for Best Senior Project.<br> Student Leadership Award for Outstanding Supplemental Instructor.
+
+### **Research and Clinical Interests**
+
+<hr class="solid">
+
+Research interests include touch, pain, electrophysiology methods, developing open-source tools
+
+Clinical interests include Movement Disorders, Neurocritical Care, and Neuromuscular Disorders.
+
+### **Research Experience**
+
+<hr class="solid">
+
+**Ph.D. Graduate Research**: *Duke University, Department of Neurobiology*. <br> Graduate Research Assistant [09/14 – present]{.cvdate} <br>
+
+-   Developed expertise in extracellular and juxtacellular electrophysiology in awake behaving animals
+-   Designed hardware and software interfaces for data acquisition, including using FPGAs, cameras, and wireless data transfer
+-   Designed and used two photon, widefield, intrinsic, confocal, and lightsheet microscopes
+-   Trained to perform single cell, in vivo cell-filling, immunohistochemistry, and tissue clearing
+
+**M.S. Graduate Research**: *Case Western Reserve University, Department of Physical Medicine and Rehabilitation.* <br> Graduate Research Assistant: [01/11- 07/12]{.cvdate}
+
+-   Measured the effects of Contralaterally-Controlled Functional Electrical Stimulation using fMRI
+-   Designed MRI-compatible devices to measure hand movements and forces
+-   Assisted in completion of IRB protocols for human subject experiments
+
+**Undergraduate Research**: *Case Western Reserve University, Department of Biomedical Engineering*.<br> Graduate Research Assistant: [11/09 – 03/11]{.cvdate}
+
+-   Measured the effect of laryngeal elevation on the ability of the vocal folds to close after transtracheal stimulation 
+-   Recorded and analyzed data generated from canine experiments, as well as monitored the animals.
+
+**Undergraduate Research**: *Case Western Reserve University, Department of Neurological Surgery*.<br> Graduate Research Assistant: [09/08 – 07/12]{.cvdate}
+
+-   Investigated methods to measure the outcomes of the light-activated cancer therapy Pc4 Photodynamic Therapy.
+-   Developed Magnetic Resonance Spectroscopy and Dynamic Contrast Enhanced-Magnetic Resonance Imaging protocols and carried out scans
+-   Assisted in animal care during studies and performed injections and anesthesia
+
+### **Teaching Experience**
+
+<hr class="solid">
+
+First Year Design Mentor Duke University \[Fall 2018\].{.cvdate}
+
+**Teaching Assistant**: *Duke University*: [Spring – Fall 2017]{.cvdate}
+
+-   Course Title: Devices for People with Disabilities
+-   Mentored teams for the Biomedical Engineering senior design class
+-   Graded laboratory notebooks each week
+
+**Supplemental Instructor**: *Case Western Reserve University* [Summer 2009 – Spring 2012]{.cvdate}
+
+-   Held optional review sessions up to three times a week and created worksheets for each
+-   Conducted additional exam reviews and created practice exams
+-   Worked closely with course professors and participated in team meetings
+-   Review session sizes ranged from 20-150 students depending on course size 
+-   Experience with the following courses:
+    -   ENGR 145 - Chemistry of Materials [6 Semesters]{.teachingdate}
+    -   BIOL 214 - Genes and Evolution [3 Semesters]{.teachingdate}
+    -   PHYS 115/116 – Physics (Algebra-Based) [1 Semester]{.teachingdate}
+    -   CHEM 223/224 – Organic Chemistry [1 Semester]{.teachingdate}
+    -   EBME 201 - Biophysics 1 – Physiology [1 Semester]{.teachingdate}
+
+**Teaching Assistant**:  *Case Western Reserve University*. [Fall 2011]{.cvdate}
+
+-   Served as team leader of four teaching assistants in 135 student engineering physiology course
+-   Assisted in designing and grading homeworks, quizzes and exams
+-   Held weekly recitation sections with \~70 student attendance.
+
+### **Technical Skills**
+
+<hr class="solid">
+
+Programming Languages: Julia, Python, C, C++, Verilog, MATLAB, Javascript
+
+Other Software: Windows, Mac OSX, Linux
+
+Neuroscience techniques: Juxtacellular labeling in vivo, extracellular recording, two photon imaging, immunohistochemical staining, tissue clearing.
+
+### **Publications**
+
+<hr class="solid">
+
+[Thompson, P. M]{.underline}., Takatoh, J., Wang, F. Encoding of tactile stimuli by club and lanceolate endings in the mouse whisker system. (In Preparation)
+
+Takatoh, J., Park, J.H., Lu, J., Li, S., [Thompson, P.M.]{.underline}, Han, B.-X., Zhao, S., Kleinfeld, D., Friedman, B., Wang, F., 2021. Constructing an adult orofacial premotor atlas in Allen mouse CCF. *eLife* 10, e67291.
+
+Jonathan Wallace, Martha O Wang, [Paul Thompson]{.underline}, Mallory Busso, Vaijayantee Belle, Nicole Mammoser, Kyobum Kim, John P Fisher, Ali Siblani, Yueshuo Xu, Jean F Welter, Donald P Lennon, Jiayang Sun, Arnold I Caplan, David Dean. Validating continuous digital light processing (cDLP) additive manufacturing accuracy and tissue engineering utility of a dye-initiator package. *Biofabrication*, 6(1): 015003. 2014.
+
+Aaron J Hadley, [Paul Thompson]{.underline}, Ilya Kolb, Elizabeth C Hahn, Dustin J Tyler. Targeted transtracheal stimulation for vocal fold closure. *Dysphagia*, 29(3): 346-354. 2014
+
+### **Conference Presentations**
+
+<hr class="solid">
+
+*Peer-Reviewed Conference Proceedings Papers*
+
+Dustin J. Tyler, Ilya Kolb, [Paul Thompson]{.underline}, Aaron Hadley. “Electrical Stimulation for the Management of Aspiration during Swallowing.” *Conf Proc IEEE Eng Med Biol Soc*. 2012;1:1-6. (Invited Paper).
+
+Vaijayantee Belle, Ali Anka, Nathan Cross, [Paul Thompson]{.underline}, Eric Mott, Rahul Sharma, Kayla Gray, Ruozhen Zhang^,^ Joyce Xu, Jiayang Sun, Chris A. Flask, Nancy L. Oleinick, David Dean. “Dynamic Contrast Enhanced-Magnetic Resonance Imaging (DCE-MRI) of Photodynamic Therapy (PDT) Outcome and Associated Changes in the Blood-Brain Barrier Following Pc 4-PDT of Glioma in an Athymic Nude Rat Model.” *SPIE Photonics West 2011*, San Francisco, CA 2011.
+
+Ali Anka, [Paul Thompson]{.underline}, Eric Mott, Rahul Sharma, Ruozhen Zhang, Nathan Cross, Jiayang Sun, Chris A. Flask, Nancy L. Oleinick, David Dean.  “Dynamic Contrast Enhancement-Magnetic Resonance Imaging (DCE-MRI) for the Assessment of Phthalocyanine 4 Photodynamic Therapy of Glioma: A U87-derived Tumor Model in the Athymic Nude Rat.”  *SPIE Photonics West 2010*. San Francisco, CA 2010. 
+
+*Abstracts (Poster and Podium Presentations)*
+
+[Paul Thompson]{.underline}, Mikhail Lebedev, Miguel. A. L. Nicolelis. A neuroscience toolbox for the wired and wireless acquisition and real-time processing of extracellular electrophysiological recordings. Society for Neuroscience. 2017.
+
+[Paul Thompson]{.underline}, Mikhail Lebedev, Miguel A. L. Nicolelis. Cortical Representations of Bimanual Movements: Patterns of Interference. Society for Neuroscience 2015.
