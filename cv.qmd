@@ -39,7 +39,9 @@ Clinical interests include Movement Disorders, Neurocritical Care, and Neuromusc
 
 <hr class="solid">
 
-**Ph.D. Graduate Research**: *Duke University, Department of Neurobiology*. <br> Graduate Research Assistant [09/14 – present]{.cvdate} <br>
+**Postdoctoral Research**: *Massachusetts Institute of Technology, Department of Brain and Cognitive Sciences* <br> Postdoctoral Associate: [09/21 - present]{.cvdate} <br>
+
+**Ph.D. Graduate Research**: *Duke University, Department of Neurobiology*. <br> Graduate Research Assistant [09/14 -- present]{.cvdate} <br>
 
 -   Developed expertise in extracellular and juxtacellular electrophysiology in awake behaving animals
 -   Designed hardware and software interfaces for data acquisition, including using FPGAs, cameras, and wireless data transfer
@@ -52,12 +54,12 @@ Clinical interests include Movement Disorders, Neurocritical Care, and Neuromusc
 -   Designed MRI-compatible devices to measure hand movements and forces
 -   Assisted in completion of IRB protocols for human subject experiments
 
-**Undergraduate Research**: *Case Western Reserve University, Department of Biomedical Engineering*.<br> Graduate Research Assistant: [11/09 – 03/11]{.cvdate}
+**Undergraduate Research**: *Case Western Reserve University, Department of Biomedical Engineering*.<br> Graduate Research Assistant: [11/09 -- 03/11]{.cvdate}
 
 -   Measured the effect of laryngeal elevation on the ability of the vocal folds to close after transtracheal stimulation 
 -   Recorded and analyzed data generated from canine experiments, as well as monitored the animals.
 
-**Undergraduate Research**: *Case Western Reserve University, Department of Neurological Surgery*.<br> Graduate Research Assistant: [09/08 – 07/12]{.cvdate}
+**Undergraduate Research**: *Case Western Reserve University, Department of Neurological Surgery*.<br> Graduate Research Assistant: [09/08 -- 07/12]{.cvdate}
 
 -   Investigated methods to measure the outcomes of the light-activated cancer therapy Pc4 Photodynamic Therapy.
 -   Developed Magnetic Resonance Spectroscopy and Dynamic Contrast Enhanced-Magnetic Resonance Imaging protocols and carried out scans
@@ -67,15 +69,15 @@ Clinical interests include Movement Disorders, Neurocritical Care, and Neuromusc
 
 <hr class="solid">
 
-First Year Design Mentor Duke University \[Fall 2018\].{.cvdate}
+**First Year Design Mentor**: *Duke University* [Fall 2018]{.cvdate}
 
-**Teaching Assistant**: *Duke University*: [Spring – Fall 2017]{.cvdate}
+**Teaching Assistant**: *Duke University*: [Spring -- Fall 2017]{.cvdate}
 
 -   Course Title: Devices for People with Disabilities
 -   Mentored teams for the Biomedical Engineering senior design class
 -   Graded laboratory notebooks each week
 
-**Supplemental Instructor**: *Case Western Reserve University* [Summer 2009 – Spring 2012]{.cvdate}
+**Supplemental Instructor**: *Case Western Reserve University* [Summer 2009 -- Spring 2012]{.cvdate}
 
 -   Held optional review sessions up to three times a week and created worksheets for each
 -   Conducted additional exam reviews and created practice exams
@@ -84,9 +86,9 @@ First Year Design Mentor Duke University \[Fall 2018\].{.cvdate}
 -   Experience with the following courses:
     -   ENGR 145 - Chemistry of Materials [6 Semesters]{.teachingdate}
     -   BIOL 214 - Genes and Evolution [3 Semesters]{.teachingdate}
-    -   PHYS 115/116 – Physics (Algebra-Based) [1 Semester]{.teachingdate}
-    -   CHEM 223/224 – Organic Chemistry [1 Semester]{.teachingdate}
-    -   EBME 201 - Biophysics 1 – Physiology [1 Semester]{.teachingdate}
+    -   PHYS 115/116 -- Physics (Algebra-Based) [1 Semester]{.teachingdate}
+    -   CHEM 223/224 -- Organic Chemistry [1 Semester]{.teachingdate}
+    -   EBME 201 - Biophysics 1 -- Physiology [1 Semester]{.teachingdate}
 
 **Teaching Assistant**:  *Case Western Reserve University*. [Fall 2011]{.cvdate}
 
@@ -98,11 +100,34 @@ First Year Design Mentor Duke University \[Fall 2018\].{.cvdate}
 
 <hr class="solid">
 
-Programming Languages: Julia, Python, C, C++, Verilog, MATLAB, Javascript
+Programming Languages:
 
-Other Software: Windows, Mac OSX, Linux
+-   Julia (Excellent)
+-   Python (Good)
+-   C++ (Good)
+-   MATLAB (Good)
+-   Javascript (Moderate)
+-   C (In & Out)
+-   Verilog (In & Out)
 
-Neuroscience techniques: Juxtacellular labeling in vivo, extracellular recording, two photon imaging, immunohistochemical staining, tissue clearing.
+Other Software:
+
+-   Windows, Mac OSX, Linux
+-   CMake
+-   GUI Design with Qt and GTK
+-   Deep Learning with PyTorch and Tensorflow
+-   Scientific camera acquisition (Basler)
+-   FFMPEG for real-time compression and decoding of large video datasets
+-   Finite Element Analysis with MOOSE and FEBio
+
+Neuroscience techniques:
+
+-   Extracellular recording with single and multi-electrodes
+-   Histological processing and immunohistochemistry
+-   Viral injection, Optic fiber implantation
+-   Two-photon, widefield and intrinsic-signal imaging in-vivo
+-   Juxtacellular labeling in-vivo
+-   Tissue clearing
 
 ### **Publications**
 
@@ -110,11 +135,13 @@ Neuroscience techniques: Juxtacellular labeling in vivo, extracellular recording
 
 [Thompson, P. M]{.underline}., Takatoh, J., Wang, F. Encoding of tactile stimuli by club and lanceolate endings in the mouse whisker system. (In Preparation)
 
-Takatoh, J., Park, J.H., Lu, J., Li, S., [Thompson, P.M.]{.underline}, Han, B.-X., Zhao, S., Kleinfeld, D., Friedman, B., Wang, F., 2021. Constructing an adult orofacial premotor atlas in Allen mouse CCF. *eLife* 10, e67291.
+Jun Takatoh, Vincent Prevosto, [P.M. Thompson]{.underline}, Jinghao Lu, Leeyup Chung, Andrew Harrahill, Shun Li, Shengli Zhao, Zhigang He, David Golomb, David Kleinfeld, and Fan Wang. The whisking oscillator circuit. Nature 1--9 (2022). [Pubmed](https://pubmed.ncbi.nlm.nih.gov/36045290/)
 
-Jonathan Wallace, Martha O Wang, [Paul Thompson]{.underline}, Mallory Busso, Vaijayantee Belle, Nicole Mammoser, Kyobum Kim, John P Fisher, Ali Siblani, Yueshuo Xu, Jean F Welter, Donald P Lennon, Jiayang Sun, Arnold I Caplan, David Dean. Validating continuous digital light processing (cDLP) additive manufacturing accuracy and tissue engineering utility of a dye-initiator package. *Biofabrication*, 6(1): 015003. 2014.
+Takatoh, J., Park, J.H., Lu, J., Li, S., [Thompson, P.M.]{.underline}, Han, B.-X., Zhao, S., Kleinfeld, D., Friedman, B., Wang, F., 2021. Constructing an adult orofacial premotor atlas in Allen mouse CCF. *eLife* 10, e67291. [Pubmed](https://pubmed.ncbi.nlm.nih.gov/33904410/)
 
-Aaron J Hadley, [Paul Thompson]{.underline}, Ilya Kolb, Elizabeth C Hahn, Dustin J Tyler. Targeted transtracheal stimulation for vocal fold closure. *Dysphagia*, 29(3): 346-354. 2014
+Jonathan Wallace, Martha O Wang, [Paul Thompson]{.underline}, Mallory Busso, Vaijayantee Belle, Nicole Mammoser, Kyobum Kim, John P Fisher, Ali Siblani, Yueshuo Xu, Jean F Welter, Donald P Lennon, Jiayang Sun, Arnold I Caplan, David Dean. Validating continuous digital light processing (cDLP) additive manufacturing accuracy and tissue engineering utility of a dye-initiator package. *Biofabrication*, 6(1): 015003. 2014. [Pubmed](https://pubmed.ncbi.nlm.nih.gov/24429508/)
+
+Aaron J Hadley, [Paul Thompson]{.underline}, Ilya Kolb, Elizabeth C Hahn, Dustin J Tyler. Targeted transtracheal stimulation for vocal fold closure. *Dysphagia*, 29(3): 346-354. 2014. [Pubmed](https://pubmed.ncbi.nlm.nih.gov/24562508/)
 
 ### **Conference Presentations**
 
@@ -122,14 +149,14 @@ Aaron J Hadley, [Paul Thompson]{.underline}, Ilya Kolb, Elizabeth C Hahn, Dusti
 
 *Peer-Reviewed Conference Proceedings Papers*
 
-Dustin J. Tyler, Ilya Kolb, [Paul Thompson]{.underline}, Aaron Hadley. “Electrical Stimulation for the Management of Aspiration during Swallowing.” *Conf Proc IEEE Eng Med Biol Soc*. 2012;1:1-6. (Invited Paper).
+Dustin J. Tyler, Ilya Kolb, [Paul Thompson]{.underline}, Aaron Hadley. "Electrical Stimulation for the Management of Aspiration during Swallowing." *Conf Proc IEEE Eng Med Biol Soc*. 2012;1:1-6. (Invited Paper).
 
-Vaijayantee Belle, Ali Anka, Nathan Cross, [Paul Thompson]{.underline}, Eric Mott, Rahul Sharma, Kayla Gray, Ruozhen Zhang^,^ Joyce Xu, Jiayang Sun, Chris A. Flask, Nancy L. Oleinick, David Dean. “Dynamic Contrast Enhanced-Magnetic Resonance Imaging (DCE-MRI) of Photodynamic Therapy (PDT) Outcome and Associated Changes in the Blood-Brain Barrier Following Pc 4-PDT of Glioma in an Athymic Nude Rat Model.” *SPIE Photonics West 2011*, San Francisco, CA 2011.
+Vaijayantee Belle, Ali Anka, Nathan Cross, [Paul Thompson]{.underline}, Eric Mott, Rahul Sharma, Kayla Gray, Ruozhen Zhang^,^ Joyce Xu, Jiayang Sun, Chris A. Flask, Nancy L. Oleinick, David Dean. "Dynamic Contrast Enhanced-Magnetic Resonance Imaging (DCE-MRI) of Photodynamic Therapy (PDT) Outcome and Associated Changes in the Blood-Brain Barrier Following Pc 4-PDT of Glioma in an Athymic Nude Rat Model." *SPIE Photonics West 2011*, San Francisco, CA 2011.
 
-Ali Anka, [Paul Thompson]{.underline}, Eric Mott, Rahul Sharma, Ruozhen Zhang, Nathan Cross, Jiayang Sun, Chris A. Flask, Nancy L. Oleinick, David Dean.  “Dynamic Contrast Enhancement-Magnetic Resonance Imaging (DCE-MRI) for the Assessment of Phthalocyanine 4 Photodynamic Therapy of Glioma: A U87-derived Tumor Model in the Athymic Nude Rat.”  *SPIE Photonics West 2010*. San Francisco, CA 2010. 
+Ali Anka, [Paul Thompson]{.underline}, Eric Mott, Rahul Sharma, Ruozhen Zhang, Nathan Cross, Jiayang Sun, Chris A. Flask, Nancy L. Oleinick, David Dean.  "Dynamic Contrast Enhancement-Magnetic Resonance Imaging (DCE-MRI) for the Assessment of Phthalocyanine 4 Photodynamic Therapy of Glioma: A U87-derived Tumor Model in the Athymic Nude Rat."  *SPIE Photonics West 2010*. San Francisco, CA 2010. 
 
 *Abstracts (Poster and Podium Presentations)*
 
-[Paul Thompson]{.underline}, Mikhail Lebedev, Miguel. A. L. Nicolelis. A neuroscience toolbox for the wired and wireless acquisition and real-time processing of extracellular electrophysiological recordings. Society for Neuroscience. 2017.
+[Paul Thompson]{.underline}, Mikhail Lebedev, Miguel. A. L. Nicolelis. A neuroscience toolbox for the wired and wireless acquisition and real-time processing of extracellular electrophysiological recordings. Society for Neuroscience. 2017. (Poster)
 
-[Paul Thompson]{.underline}, Mikhail Lebedev, Miguel A. L. Nicolelis. Cortical Representations of Bimanual Movements: Patterns of Interference. Society for Neuroscience 2015.
+[Paul Thompson]{.underline}, Mikhail Lebedev, Miguel A. L. Nicolelis. Cortical Representations of Bimanual Movements: Patterns of Interference. Society for Neuroscience 2015. (Poster)
