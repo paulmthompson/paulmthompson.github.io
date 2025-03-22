@@ -7,6 +7,7 @@ website:
     right:
       - about.qmd
       - cv.qmd
+      - software.qmd
       - icon: github
         href: https://github.com/paulmthompson
 

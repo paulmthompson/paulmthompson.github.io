@@ -1,0 +1,22 @@
+---
+title: "Software"
+format: html
+---
+
+## Neuralyzer
+
+<https://github.com/paulmthompson/WhiskerToolbox>
+
+## Whisker-Analysis
+
+<https://github.com/paulmthompson/Whisker-Analysis>
+
+## ffmpeg_wrapper
+
+<https://github.com/paulmthompson/ffmpeg_wrapper>
+
+## CameraViewer and CameraManager
+
+<https://github.com/paulmthompson/CameraViewer>
+
+<https://github.com/paulmthompson/CameraManager>
