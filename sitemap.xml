@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://github.com/paulmthompson/paulmthompson.github.io/posts/welcome/index.html</loc>
-    <lastmod>2024-04-07T11:54:16.485Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/paulmthompson/paulmthompson.github.io/index.html</loc>
-    <lastmod>2024-04-07T11:54:15.801Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/paulmthompson/paulmthompson.github.io/about.html</loc>
-    <lastmod>2024-04-07T11:54:14.548Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/paulmthompson/paulmthompson.github.io/cv.html</loc>
-    <lastmod>2024-04-07T11:54:15.154Z</lastmod>
+    <loc>https://github.com/paulmthompson/paulmthompson.github.io/software.html</loc>
+    <lastmod>2025-03-22T22:01:57.633Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/paulmthompson/paulmthompson.github.io/posts/post-with-code/index.html</loc>
-    <lastmod>2024-04-07T11:54:16.144Z</lastmod>
+    <lastmod>2025-03-22T22:01:56.556Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/paulmthompson/paulmthompson.github.io/cv.html</loc>
+    <lastmod>2025-03-22T22:01:54.978Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/paulmthompson/paulmthompson.github.io/about.html</loc>
+    <lastmod>2025-03-22T22:01:54.036Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/paulmthompson/paulmthompson.github.io/index.html</loc>
+    <lastmod>2025-03-22T22:01:55.977Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/paulmthompson/paulmthompson.github.io/posts/welcome/index.html</loc>
+    <lastmod>2025-03-22T22:01:57.100Z</lastmod>
   </url>
 </urlset>
