@@ -1,0 +1,31 @@
+{
+  "name": "Quarto Blog Environment",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/python:1": {
+      "installTools": true,
+      "version": "3.14"
+    },
+    "ghcr.io/rocker-org/devcontainer-features/r-rig:1": {
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers-contrib/features/quarto-cli:2": {
+      "version": "latest"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "r.rpath.linux": "/usr/local/bin/R"
+      },
+      "extensions": [
+        "quarto.quarto",
+        "ms-python.python",
+        "REditorSupport.r",
+        "ms-toolsai.jupyter"
+      ]
+    }
+  },
+  "postCreateCommand": "pip install jupyter matplotlib pandas && Rscript -e 'install.packages(c(\"tidyverse\", \"reticulate\"))'"
+}
